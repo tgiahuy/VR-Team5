@@ -1,0 +1,54 @@
+# Unity-generated directories (project lives in MuseumVR/)
+/MuseumVR/[Ll]ibrary/
+/MuseumVR/[Tt]emp/
+/MuseumVR/[Oo]bj/
+/MuseumVR/[Bb]uild/
+/MuseumVR/[Bb]uilds/
+/MuseumVR/[Ll]ogs/
+/MuseumVR/[Uu]ser[Ss]ettings/
+/MuseumVR/[Mm]emoryCaptures/
+/MuseumVR/[Rr]ecordings/
+
+# Unity-generated files
+/MuseumVR/[Aa]ssets/AssetStoreTools*
+/MuseumVR/sysinfo.txt
+/MuseumVR/crashlytics-build.properties
+
+# IDE and editor files
+.idea/
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.slnx
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity/Visual Studio generated metadata
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Crash reports
+crashlytics-build.properties
+sysinfo.txt
+
+# Packed Addressables data
+/MuseumVR/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated test scenes
+/MuseumVR/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/MuseumVR/[Aa]ssets/[Ss]treamingAssets/aa/*
