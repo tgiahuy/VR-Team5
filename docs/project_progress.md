@@ -79,13 +79,13 @@ Tạo nền tảng làm việc thống nhất để bắt đầu sản xuất m�
 
 ### Checklist công việc
 
-- [ ] (GP) Chốt phiên bản Unity LTS và render pipeline.
-- [ ] (GP) Tạo project Unity và kiểm tra project mở/chạy được.
-- [ ] (GP) Tạo repository Git và `.gitignore` cho Unity.
-- [ ] (GP) Tạo các nhánh `main` và `develop`.
-- [ ] (GP) Tạo cấu trúc thư mục trong `Assets/_Project`.
-- [ ] (GP) Tạo các scene `Bootstrap`, `MainMenu` và `Museum`.
-- [ ] (GP) Tạo bảng quản lý task cá nhân (Trello/Notion/GitHub Projects).
+- [x] (GP) Chốt phiên bản Unity LTS và render pipeline.
+- [x] (GP) Tạo project Unity và kiểm tra project mở/chạy được.
+- [x] (GP) Tạo repository Git và `.gitignore` cho Unity.
+- [x] (GP) Tạo các nhánh `main` và `develop`.
+- [x] (GP) Tạo cấu trúc thư mục trong `Assets/_Project`.
+- [x] (GP) Tạo các scene `Bootstrap`, `MainMenu` và `Museum`.
+- [x] (GP) Tạo bảng quản lý task cá nhân (Trello/Notion/GitHub Projects).
 - [ ] (ENV) Vẽ sơ đồ mặt bằng gồm sảnh, 3 khu trưng bày và khu quiz.
 - [ ] (ENV) Xác định tỷ lệ, kích thước hành lang và vị trí hiện vật.
 - [ ] (ENV) Chốt phong cách ánh sáng và hình ảnh tham chiếu.
@@ -377,7 +377,7 @@ Nếu một tính năng mở rộng có nguy cơ làm trễ `Release_v1.0`, lậ
 
 Sao chép mẫu dưới đây cho mỗi ngày làm việc:
 
-### Ngày ____ — ____ / ____ / ______
+### Ngày \_**\_ — \_\_** / \_**\_ / \_\_\_\_**
 
 - **Milestone hiện tại:** `M0 / M1 / M2 / M3 / M4`
 - **Tiến độ milestone:** `______%`
@@ -444,8 +444,3 @@ Nếu milestone trễ hơn một ngày:
 6. Ghi rõ phạm vi bị cắt và lý do trong phần review milestone.
 
 Không được cắt giảm việc kiểm duyệt nội dung văn hóa, nguồn tham khảo, kiểm thử bản build hoặc video dự phòng.
-
-
-
-
-
