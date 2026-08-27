@@ -1,319 +1,534 @@
-# KẾ HOẠCH DỰ ÁN UNITY TRONG 1 THÁNG
+# SPEC DỰ ÁN UNITY — BẢO TÀNG ẢO TRANG PHỤC TRUYỀN THỐNG TÂY NGUYÊN
 
 ## 1. Thông tin chung
 
 - **Tên đề tài:** Mô phỏng bảo tàng trưng bày trang phục truyền thống của đồng bào Tây Nguyên.
-- **Thời gian thực hiện:** 4 tuần, tương đương 20 ngày làm việc chính; các ngày cuối tuần là thời gian dự phòng.
-- **Nền tảng mục tiêu:** PC Windows, điều khiển bằng bàn phím và chuột.
-- **Công cụ chính:** Unity LTS, Blender, Git/GitHub, Photoshop/GIMP/Krita, Audacity và một bảng công việc cá nhân (Trello/Notion/GitHub Projects).
-- **Sản phẩm cuối:** Một ứng dụng bảo tàng ảo chạy độc lập, cho phép người dùng tham quan, xem mô hình trang phục, đọc/nghe thuyết minh và hoàn thành một hoạt động tương tác ngắn.
+- **Loại dự án:** Ứng dụng bảo tàng ảo 3D xây dựng bằng Unity.
+- **Nhân sự:** 4 thành viên.
+- **Thời gian thực hiện:** 4 tuần, khoảng 20 ngày làm việc chính; cuối tuần dùng làm thời gian dự phòng.
+- **Nền tảng mục tiêu:** PC Windows.
+- **Điều khiển chính:** Bàn phím + chuột.
+- **Công cụ:** Unity LTS, Blender, Git/GitHub, Photoshop/GIMP/Krita, Audacity và Trello/Notion/GitHub Projects.
+- **Sản phẩm cuối:** Ứng dụng bảo tàng ảo chạy độc lập, cho phép người dùng tham quan không gian 3D, tương tác với trang phục, đọc/nghe thông tin và thực hiện bài trắc nghiệm cuối hành trình.
 
-> **Lưu ý về việc làm một mình:** Toàn bộ khối lượng do một người đảm nhiệm nên mọi công việc diễn ra tuần tự, không song song. Vì vậy phạm vi được rút gọn có chủ đích (xem mục 3), ưu tiên dùng asset có giấy phép phù hợp và ảnh tư liệu thay cho việc tự dựng mọi mô hình. Nguyên tắc xuyên suốt: **hoàn thiện luồng end-to-end trước, bổ sung nội dung sau, đánh bóng cuối cùng.**
+> Dự án tập trung vào một trải nghiệm bảo tàng ảo 3D có thể hoàn thành tốt trong 1 tháng bởi nhóm 4 người. Phạm vi văn hóa được giới hạn có chủ đích và không đại diện đầy đủ cho toàn bộ các cộng đồng tại Tây Nguyên.
+
+---
 
 ## 2. Mục tiêu dự án
 
 ### 2.1. Mục tiêu chính
 
-Xây dựng một bảo tàng ảo 3D quy mô nhỏ, giới thiệu trang phục truyền thống của một số dân tộc tại Tây Nguyên theo cách trực quan, dễ sử dụng và tôn trọng giá trị văn hóa.
+Xây dựng một bảo tàng ảo 3D giới thiệu trang phục truyền thống của một số cộng đồng tại Tây Nguyên theo hướng trực quan, dễ sử dụng và có nguồn nội dung rõ ràng.
 
 Người dùng có thể:
 
-- Đi lại tự do trong không gian bảo tàng.
-- Tham quan ít nhất 3 khu trưng bày.
-- Quan sát trang phục dưới dạng mô hình 3D hoặc hình ảnh tư liệu từ nhiều góc độ.
-- Đọc thông tin về tên trang phục, dân tộc, chất liệu, hoàn cảnh sử dụng và ý nghĩa văn hóa.
-- Nghe thuyết minh ngắn hoặc xem hình ảnh tư liệu tại từng khu.
-- Thực hiện một bài trắc nghiệm cuối hành trình.
-- Quay lại sảnh chính, mở hướng dẫn hoặc thoát ứng dụng bất cứ lúc nào.
+- Đi lại tự do trong bảo tàng.
+- Tham quan tối thiểu 3 khu trưng bày.
+- Tương tác với tối thiểu 6 hiện vật.
+- Đọc thông tin chi tiết của từng hiện vật.
+- Xem mô hình trang phục ở chế độ riêng, xoay và phóng to/thu nhỏ.
+- Nghe thuyết minh tại các điểm trưng bày.
+- Xem sơ đồ hoặc biển chỉ dẫn.
+- Hoàn thành bài quiz 5 câu cuối hành trình.
+- Tạm dừng, chỉnh âm lượng/độ nhạy và quay lại menu.
 
 ### 2.2. Mục tiêu học thuật
 
-- Vận dụng Unity để xây dựng môi trường 3D và hệ thống tương tác.
-- Áp dụng quy trình làm việc cá nhân có kỷ luật với Git.
-- Nghiên cứu, chọn lọc và trình bày dữ liệu văn hóa có nguồn rõ ràng.
-- Tối ưu ứng dụng để chạy ổn định trên máy tính tầm trung.
-- Hoàn thiện hồ sơ dự án gồm báo cáo, video demo, slide thuyết trình và bản build.
+- Vận dụng Unity trong xây dựng môi trường 3D.
+- Xây dựng hệ thống gameplay và tương tác cơ bản.
+- Thực hành quy trình làm dự án Unity theo nhóm bằng Git/GitHub.
+- Tổ chức dữ liệu hiện vật tách biệt khỏi UI bằng ScriptableObject hoặc giải pháp tương đương.
+- Áp dụng quy trình tìm kiếm, kiểm tra và trích dẫn dữ liệu văn hóa.
+- Thực hiện kiểm thử, profiling và tối ưu một ứng dụng 3D.
+- Hoàn thiện build, báo cáo, slide và video demo.
 
 ### 2.3. Tiêu chí thành công
 
-Dự án được xem là hoàn thành khi đáp ứng tất cả điều kiện sau:
+Dự án được xem là hoàn thành khi:
 
-- Có bản build Windows mở và chạy được mà không cần Unity Editor.
-- Người dùng có thể hoàn thành luồng: menu → sảnh → 3 khu trưng bày → trắc nghiệm → màn hình kết quả.
-- Có tối thiểu 6 hiện vật trang phục, trung bình 2 hiện vật cho mỗi khu.
-- Mỗi hiện vật có mô hình hoặc hình ảnh minh họa, bảng thông tin và nguồn tham khảo.
-- Có ít nhất 3 đoạn thuyết minh âm thanh, mỗi đoạn từ 30–60 giây.
-- Không có lỗi nghiêm trọng làm người chơi mắc kẹt, rơi khỏi bản đồ hoặc không thể hoàn tất trải nghiệm.
-- Ứng dụng đạt trung bình từ 45 FPS trở lên trên máy kiểm thử mục tiêu ở thiết lập mặc định.
-- Có báo cáo, slide, poster hoặc ảnh đại diện, video demo 3–5 phút và hướng dẫn chạy.
+1. Có build Windows chạy độc lập không cần Unity Editor.
+2. Hoàn thành được luồng `Main Menu → Museum → 3 khu → Quiz → Result`.
+3. Có ít nhất 3 khu và 6 hiện vật.
+4. Cả 6 hiện vật đều tương tác được.
+5. Mỗi hiện vật có tên, cộng đồng liên quan, mô tả, hình ảnh/mô hình và nguồn.
+6. Có chế độ xem 3D xoay/zoom.
+7. Có tối thiểu 3 đoạn audio guide dài khoảng 30–60 giây.
+8. Quiz có 5 câu và tính điểm chính xác.
+9. Không còn lỗi P0/P1 trước release.
+10. Mục tiêu hiệu năng là 60 FPS; ngưỡng nghiệm thu tối thiểu trung bình 45 FPS trên máy mục tiêu.
+11. Có báo cáo, slide, README và video demo 3–5 phút.
 
-## 3. Phạm vi thực hiện
+---
 
-### 3.1. Phạm vi bắt buộc — MVP (đã rút gọn cho một người)
+## 3. Phạm vi dự án
 
-Đây là phần phải hoàn thành trước khi làm bất kỳ tính năng mở rộng nào:
+### 3.1. MVP bắt buộc
 
-1. Menu chính gồm Bắt đầu, Hướng dẫn, Giới thiệu và Thoát.
-2. Một sảnh chính và **3 khu trưng bày** đại diện cho Ê Đê, Ba Na và Gia Rai (chọn theo mức độ sẵn có của nguồn tư liệu).
-3. Tối thiểu **6 hiện vật** trang phục (2 hiện vật/khu).
-4. Hệ thống di chuyển góc nhìn thứ nhất bằng bàn phím và chuột.
-5. Tương tác bằng tâm ngắm và phím `E` hoặc nhấp chuột.
-6. Bảng thông tin hiện vật có ảnh, tên, mô tả ngắn và nguồn.
-7. Chế độ xoay/phóng to mô hình trang phục tại điểm trưng bày.
-8. Âm thanh nền nhẹ, âm thanh tương tác và ít nhất **3 đoạn thuyết minh**.
-9. Bản đồ sơ đồ bảo tàng hoặc biển chỉ dẫn.
-10. Trắc nghiệm 5 câu và màn hình kết quả.
-11. Menu tạm dừng, chỉnh âm lượng và quay lại menu chính.
-12. Bản build Windows đã kiểm thử.
+#### A. Main Menu
 
-Việc rút gọn còn 3 dân tộc chỉ nhằm giới hạn khối lượng cho một người trong một tháng, **không** mang ý nghĩa đại diện đầy đủ cho toàn bộ cộng đồng các dân tộc ở Tây Nguyên. Phần Giới thiệu phải nói rõ phạm vi và lý do này.
+Bao gồm:
 
-**Chiến lược tài sản (asset):** Ưu tiên tối đa việc dùng mannequin/asset có giấy phép phù hợp kết hợp ảnh tư liệu có nguồn rõ ràng; chỉ tự dựng trong Blender khi không có phương án thay thế và ở mức low-poly đơn giản. Mọi asset đều phải ghi nguồn và giấy phép.
+- Bắt đầu tham quan.
+- Hướng dẫn.
+- Giới thiệu.
+- Cài đặt.
+- Thoát.
 
-### 3.2. Tính năng mở rộng — chỉ làm khi MVP đã ổn định và còn thời gian
+#### B. Không gian bảo tàng
 
-- Khu thứ 4 (M’nông) và các hiện vật bổ sung.
-- Chế độ VR.
-- Nhân vật hướng dẫn ảo.
-- Phụ đề đồng bộ với thuyết minh.
+Gồm:
+
+- Sảnh chính.
+- Khu Ê Đê.
+- Khu Ba Na.
+- Khu Gia Rai.
+- Khu Quiz/Kết thúc.
+
+Mỗi khu trưng bày chính có tối thiểu:
+
+- 2 hiện vật.
+- Biển tên khu.
+- Nội dung giới thiệu chung.
+- Bục/tủ hoặc không gian trưng bày.
+- Điểm tương tác/thuyết minh phù hợp.
+
+#### C. Player Controller
+
+- Di chuyển WASD.
+- Điều khiển góc nhìn bằng chuột.
+- Collision.
+- Không thể đi xuyên tường hoặc rơi khỏi map trong luồng bình thường.
+- Khóa/mở cursor phù hợp với trạng thái.
+- Có thể thay đổi độ nhạy chuột.
+
+#### D. Interaction System
+
+Người chơi nhìn vào đối tượng tương tác trong khoảng cách quy định.
+
+Hệ thống:
+
+1. Raycast từ camera.
+2. Phát hiện đối tượng có thể tương tác.
+3. Hiển thị prompt, ví dụ `Nhấn E để xem`.
+4. Nhấn `E`.
+5. Đối tượng thực hiện hành vi tương ứng.
+
+Hệ thống nên dùng interface/base component chung để có thể mở rộng cho:
+
+- Exhibit.
+- Audio point.
+- Quiz.
+- Door hoặc đối tượng khác nếu cần.
+
+#### E. Exhibit System
+
+Mỗi hiện vật có dữ liệu độc lập, đề xuất sử dụng `ExhibitData : ScriptableObject`.
+
+Thông tin có thể gồm:
+
+- ID.
+- Tên hiện vật.
+- Cộng đồng/dân tộc liên quan.
+- Mô tả ngắn.
+- Nội dung chi tiết.
+- Chất liệu.
+- Hoàn cảnh sử dụng.
+- Địa bàn/giai đoạn nếu nguồn có nêu.
+- Hình ảnh.
+- Prefab/model 3D.
+- Audio guide.
+- Nguồn tham khảo.
+- Thông tin giấy phép asset/hình ảnh.
+
+Không hard-code nội dung của từng hiện vật trực tiếp vào script UI.
+
+#### F. Exhibit Information UI
+
+Khi tương tác:
+
+- Mở panel thông tin.
+- Hiển thị tên.
+- Hình ảnh.
+- Nội dung.
+- Nguồn.
+- Nút nghe thuyết minh nếu có.
+- Nút xem mô hình 3D.
+- Nút đóng.
+
+Khi panel mở, gameplay phải được khóa phù hợp.
+
+#### G. Exhibit Viewer
+
+Cho phép:
+
+- Hiển thị mô hình riêng.
+- Kéo chuột để xoay.
+- Scroll để zoom.
+- Giới hạn khoảng zoom.
+- Đóng viewer và quay lại gameplay.
+- Không làm thay đổi transform của hiện vật gốc trong bảo tàng.
+
+#### H. Audio System
+
+Bao gồm:
+
+- BGM nhẹ.
+- Ambient sound.
+- UI SFX.
+- Interaction SFX.
+- Voice-over/audio guide.
+
+Yêu cầu:
+
+- Không phát nhiều voice-over chồng nhau.
+- Có thể dừng audio.
+- Điều chỉnh âm lượng.
+- Tối thiểu 3 đoạn thuyết minh chính thức.
+
+#### I. Quiz
+
+- 5 câu hỏi.
+- Mỗi câu có các đáp án lựa chọn.
+- Một đáp án đúng.
+- Chuyển câu.
+- Tính điểm.
+- Màn hình kết quả.
+- Chơi lại.
+- Quay về bảo tàng/menu.
+
+Nội dung câu hỏi chỉ lấy từ những kiến thức đã xuất hiện trong trải nghiệm.
+
+#### J. Pause & Settings
+
+Pause Menu:
+
+- Tiếp tục.
+- Cài đặt.
+- Quay về menu.
+
+Settings:
+
+- Master Volume.
+- Music.
+- SFX/Voice nếu nhóm có thời gian tách mixer.
+- Mouse sensitivity.
+- Graphics quality nếu cần.
+
+#### K. Navigation
+
+- Sơ đồ bảo tàng hoặc bảng định hướng.
+- Biển tên rõ cho từng khu.
+- Khu Quiz dễ nhận biết.
+- Người dùng mới phải có khả năng tự tìm đường mà không cần thành viên nhóm hướng dẫn trực tiếp.
+
+---
+
+## 4. Tính năng mở rộng
+
+Chỉ triển khai sau khi MVP ổn định:
+
+- Khu thứ 4 – M’nông.
+- Chế độ VR thực tế.
 - Song ngữ Việt–Anh.
-- Hệ thống thu thập con dấu sau mỗi khu.
-- Hoạt ảnh dệt vải hoặc video tư liệu.
-- Mini-game ghép họa tiết/trang phục.
+- Phụ đề audio guide.
+- Hệ thống thu thập/con dấu.
+- Nhân vật hướng dẫn.
+- Video quy trình dệt.
+- Mini-game ghép họa tiết.
+- Hiệu ứng chuyển cảnh nâng cao.
+
+Các tính năng này không được làm ảnh hưởng deadline của MVP.
+
+---
+
+## 5. Ngoài phạm vi
+
+Trong 1 tháng không đặt mục tiêu:
+
+- Multiplayer.
+- Backend/server.
+- Tài khoản người dùng.
+- Database online.
+- Cloth simulation chất lượng cao realtime.
+- Tái tạo bảo tàng thực tế 1:1.
+- Xây dựng trang phục của toàn bộ cộng đồng Tây Nguyên.
+- Phát hành đồng thời Windows, WebGL và mobile.
+
+---
+
+## 6. Thiết kế trải nghiệm
+
+### 6.1. User Flow
+
+```text
+Launch
+  ↓
+Main Menu
+  ↓
+Bắt đầu
+  ↓
+Sảnh chính
+  ↓
+Hướng dẫn + sơ đồ
+  ↓
+Khu Ê Đê ──→ Exhibit Interaction
+  ↓
+Khu Ba Na ─→ Exhibit Interaction
+  ↓
+Khu Gia Rai → Exhibit Interaction
+  ↓
+Quiz
+  ↓
+Result
+  ↓
+Tiếp tục tham quan / Main Menu
+```
+
+Người dùng không bắt buộc phải tham quan ba khu theo thứ tự nếu thiết kế mặt bằng cho phép tự do khám phá.
+
+### 6.2. Bản vẽ sơ lược mặt bằng
+
+Sơ đồ dưới đây là bản phác thảo định hướng để nhóm dựng blockout trong Unity. Kích thước thực tế có thể điều chỉnh khi test di chuyển, nhưng nên giữ cấu trúc: sảnh trung tâm, ba khu trưng bày rõ ràng và khu quiz ở cuối hành trình.
+
+```text
++--------------------------------------------------------------------------------+
+|                                BAO TANG AO 3D                                  |
+|                                                                                |
+|  +----------------------+      +----------------------+      +----------------+ |
+|  |      KHU E DE        |      |      KHU BA NA       |      |   KHU GIA RAI | |
+|  |                      |      |                      |      |                | |
+|  |  [H1]      [H2]      |      |  [H3]      [H4]      |      | [H5]    [H6]  | |
+|  |  Bia gioi thieu     |      |  Bia gioi thieu     |      | Bia gioi thieu| |
+|  |  Audio guide         |      |  Audio guide         |      | Audio guide    | |
+|  +----------+-----------+      +----------+-----------+      +--------+-------+ |
+|             |                             |                           |         |
+|             +-------------+---------------+---------------+-----------+         |
+|                           |                               |                     |
+|                    +------+-------------------------------+------+              |
+|                    |              SANH CHINH                     |              |
+|                    |                                             |              |
+|                    |  Ten du an + gioi thieu ngan                |              |
+|                    |  So do bao tang + huong dan dieu khien      |              |
+|                    |  Bien chi dan den 3 khu trung bay           |              |
+|                    +------+-------------------------------+------+              |
+|                           |                               |                     |
+|                           |                               |                     |
+|                    +------+-------------------------------+------+              |
+|                    |              KHU QUIZ / KET THUC            |              |
+|                    |  5 cau hoi  ->  Man hinh ket qua            |              |
+|                    |  Loi cam on + tai lieu tham khao            |              |
+|                    +---------------------------------------------+              |
+|                                                                                |
++--------------------------------------------------------------------------------+
+
+Chu thich:
+[H1]..[H6] = 6 hien vat trang phuc, moi hien vat co model/anh, bang thong tin,
+nguon tham khao va nut xem 3D/audio neu co.
+```
+
+### 6.3. Luồng di chuyển trong mặt bằng
+
+```text
+Main Menu
+   ↓
+Sanh chinh
+   ├── Khu E De ── xem H1, H2 ── nghe audio
+   ├── Khu Ba Na ─ xem H3, H4 ── nghe audio
+   └── Khu Gia Rai xem H5, H6 ── nghe audio
+   ↓
+Khu Quiz
+   ↓
+Result / Quay lai bao tang / Main Menu
+```
+
+### 6.4. Phong cách hình ảnh
+
+- Không gian sạch và dễ quan sát.
+- Màu môi trường tương đối trung tính để trang phục nổi bật.
+- Ánh sáng ấm, dịu.
+- Hạn chế post-processing quá mạnh.
+- Các khu phân biệt chủ yếu bằng biển tên, bố cục và nội dung.
+- Không tùy tiện gán màu/họa tiết mang ý nghĩa văn hóa khi chưa có nguồn.
+- UI có độ tương phản cao và đọc được ở khoảng cách sử dụng thông thường.
+
+---
+
+## 7. Phân công nhóm 4 người
+
+### Thành viên 1 — Gameplay & Integration Lead (GP)
+
+**Trách nhiệm chính:**
+
+- Unity project architecture.
+- Player Controller.
+- Interaction System.
+- Exhibit Viewer.
+- GameManager.
+- Settings.
+- Scene integration.
+- Build.
+- Git integration và xử lý conflict kỹ thuật.
+
+**Module phụ trách:**
+
+```text
+Scripts/
+├── Core/
+├── Player/
+└── Interaction/
+```
 
-### 3.3. Ngoài phạm vi trong tháng đầu
+Thành viên 1 chịu trách nhiệm đảm bảo các hệ thống của các thành viên khác được tích hợp thành một build chạy được.
+
+### Thành viên 2 — Environment & Optimization (ENV)
+
+**Trách nhiệm:**
+
+- Layout bảo tàng.
+- Blockout.
+- Sảnh.
+- 3 khu trưng bày.
+- Bục/tủ kính.
+- Material môi trường.
+- Lighting.
+- Light baking.
+- Collider.
+- Occlusion/LOD.
+- Profiling và tối ưu môi trường.
 
-- Multiplayer hoặc tham quan trực tuyến nhiều người.
-- Tự do thay trang phục cho nhân vật 3D.
-- Mô phỏng vật lý vải thời gian thực chất lượng cao.
-- Tái tạo chính xác một bảo tàng thực tế ở tỷ lệ 1:1.
-- Xây dựng toàn bộ trang phục của tất cả các dân tộc Tây Nguyên.
-- Phiên bản mobile, WebGL và PC đồng thời.
-- Hệ thống tài khoản, cơ sở dữ liệu trực tuyến hoặc lưu tiến trình trên máy chủ.
+Ưu tiên asset modular/free có giấy phép phù hợp thay vì tự dựng toàn bộ kiến trúc.
 
-## 4. Ý tưởng trải nghiệm
+### Thành viên 3 — Exhibit 3D & Cultural Content (CONT)
 
-### 4.1. Luồng người dùng
+**Trách nhiệm:**
 
-1. Người dùng mở ứng dụng và xem menu chính.
-2. Chọn **Bắt đầu tham quan**.
-3. Xuất hiện tại sảnh, xem hướng dẫn điều khiển ngắn.
-4. Quan sát sơ đồ và chọn một trong ba khu trưng bày.
-5. Đến gần hiện vật; hệ thống hiển thị lời nhắc tương tác.
-6. Mở bảng thông tin, xoay mô hình hoặc nghe thuyết minh.
-7. Tiếp tục tham quan các khu còn lại.
-8. Khi đã xem đủ nội dung, người dùng đến khu trắc nghiệm.
-9. Hoàn thành 5 câu hỏi và nhận kết quả.
-10. Quay lại bảo tàng hoặc kết thúc trải nghiệm.
+- Nghiên cứu nội dung.
+- Chọn 6 hiện vật.
+- Thu thập nguồn.
+- Tìm/chuẩn hóa model trang phục và mannequin.
+- Texture/material của hiện vật.
+- Viết nội dung bảng thông tin.
+- Kịch bản voice-over.
+- Credits và danh mục nguồn.
+- Kiểm tra quyền sử dụng asset.
 
-### 4.2. Bố cục không gian đề xuất
+Mỗi hiện vật phải có hồ sơ nguồn trước khi nội dung được khóa.
 
-- **Sảnh chính:** tên dự án, lời giới thiệu, sơ đồ, hướng dẫn điều khiển và lối vào 3 khu.
-- **Khu 1 – Ê Đê:** 2 hiện vật, 1 bảng giới thiệu chung, 1 điểm nghe thuyết minh.
-- **Khu 2 – Ba Na:** 2 hiện vật, 1 bảng giới thiệu chung, 1 điểm nghe thuyết minh.
-- **Khu 3 – Gia Rai:** 2 hiện vật, 1 bảng giới thiệu chung, 1 điểm nghe thuyết minh.
-- **Khu cuối:** trắc nghiệm, lời cảm ơn và danh sách nguồn tham khảo.
+### Thành viên 4 — UI/UX, Audio, Quiz & QA (UITEST)
+
+**Trách nhiệm:**
 
-Nếu tiến độ vượt kế hoạch, có thể bổ sung **Khu 4 – M’nông** theo đúng khuôn mẫu trên (xem mục 3.2).
-
-Không gian nên dùng một hệ kiến trúc thống nhất, lấy cảm hứng từ vật liệu và không khí Tây Nguyên nhưng tránh trộn lẫn tùy tiện các biểu tượng văn hóa khác nhau. Họa tiết trang trí chỉ được dùng khi đã xác minh nguồn và ý nghĩa.
-
-### 4.3. Phong cách hình ảnh
-
-- Mức độ chi tiết trung bình, ưu tiên sạch, rõ và chạy ổn định.
-- Màu nền trung tính để trang phục là điểm nhấn.
-- Ánh sáng ấm, dịu; không lạm dụng hiệu ứng hậu kỳ.
-- Kích thước chữ đủ lớn, độ tương phản tốt và khoảng đọc thuận tiện.
-- Các khu được phân biệt bằng biển tên, bố cục và nội dung thay vì gán màu sắc tùy ý cho từng dân tộc.
-
-## 5. Tổ chức công việc khi làm một mình
-
-Vì chỉ có một người, thay cho việc phân vai là **các mảng công việc** được cùng một người đảm nhiệm luân phiên. Mục tiêu tổ chức là tránh làm dở dang nhiều thứ và luôn giữ được một bản chạy được.
-
-### 5.1. Các mảng công việc
-
-- **Gameplay & tích hợp:** di chuyển, camera, tương tác, quản lý trạng thái, chuyển scene, tạo build.
-- **Môi trường 3D & hình ảnh:** mặt bằng, tường/sàn/bục/tủ kính/đèn/biển chỉ dẫn, vật liệu, ánh sáng, tối ưu.
-- **Trang phục & nội dung:** danh sách hiện vật, thu thập nguồn/asset, chuẩn hóa mô hình, viết mô tả và kịch bản thuyết minh.
-- **UI/UX, âm thanh, kiểm thử & hồ sơ:** menu, bảng thông tin, quiz, thu/xử lý âm thanh, test case, báo cáo, slide, video.
-
-### 5.2. Nguyên tắc làm việc
-
-- **Một hạng mục tại một thời điểm (WIP = 1):** làm xong và kiểm tra một việc rồi mới sang việc khác; tránh mở nhiều mảng dở dang.
-- **End-to-end trước, nội dung sau, đánh bóng cuối:** ưu tiên có luồng đầy đủ (dù placeholder) rồi mới nâng chất lượng.
-- **Tự review bằng checklist:** mỗi mảng có tiêu chí nghiệm thu riêng (xem `project_progress.md`); tự chạy thử trước khi đánh dấu hoàn thành.
-- **Review nội dung văn hóa từ bên ngoài:** vì không có đồng đội review chéo, phải nhờ giảng viên hoặc người am hiểu kiểm tra nội dung trước khi khóa (mục 9).
-- **Timebox:** nếu một hạng mục vượt quá thời lượng dự kiến, cắt độ chi tiết thay vì kéo dài vô hạn (mục 15).
-- **Commit và build đều đặn:** commit nhỏ hằng ngày, tạo build ở cuối mỗi tuần để phát hiện lỗi sớm.
-
-## 6. Kế hoạch 4 tuần
-
-> Mỗi ngày nên có một mục tiêu duy nhất, rõ ràng. Nếu chậm, dời việc nhẹ (đánh bóng) sang cuối tuần dự phòng, không dời việc chặn luồng.
-
-### Tuần 1 — Chốt phạm vi, nghiên cứu và dựng nguyên mẫu chơi được
-
-**Mục tiêu tuần:** Có prototype đi lại được trong bảo tàng dạng khối xám, có 1 hiện vật tương tác mẫu và bộ dữ liệu nội dung ban đầu.
-
-**Ngày 1 — Khởi động**
-
-- Chốt MVP, nền tảng, độ phân giải, phong cách và tiêu chí hoàn thành.
-- Chọn phiên bản Unity LTS và render pipeline; không đổi giữa dự án.
-- Tạo repository Git, `.gitignore` cho Unity, quy tắc đặt tên và bảng công việc cá nhân.
-- Tạo project và các scene `Bootstrap`, `MainMenu`, `Museum`; tạo cấu trúc thư mục `Assets/_Project`.
-- Vẽ sơ đồ mặt bằng (sảnh + 3 khu + khu quiz) trên giấy hoặc Figma.
-- Lập danh sách 6 hiện vật dự kiến và biểu mẫu ghi nguồn.
-- **Kết quả:** project mở được, commit/pull thành công, có sơ đồ và danh sách hiện vật v1.
-
-**Ngày 2 — Điều khiển người chơi + bắt đầu tìm nguồn**
-
-- Hoàn thiện di chuyển `WASD`, camera chuột, va chạm, khóa/mở con trỏ và menu tạm dừng cơ bản.
-- Tìm tối thiểu 2 nguồn tin cậy cho mỗi khu; đánh dấu hiện vật nào dùng được asset/ảnh có sẵn.
-- **Kết quả:** người chơi đi và nhìn được trong scene trống; có danh mục nguồn ban đầu.
-
-**Ngày 3 — Blockout môi trường**
-
-- Dựng blockout toàn bộ bảo tàng bằng primitive/modular mesh (sảnh + 3 khu + khu quiz).
-- Thêm collider cho sàn/tường, đặt bục hoặc tủ trưng bày mẫu.
-- **Kết quả:** đi xuyên suốt bảo tàng không rơi/kẹt.
-
-**Ngày 4 — Tương tác + dữ liệu hiện vật**
-
-- Làm raycast tương tác, lời nhắc nhấn `E` và giao diện dữ liệu hiện vật.
-- Tạo `ExhibitData` (ScriptableObject) và prefab bảng thông tin; gắn 1 hiện vật mẫu (ảnh + tên + mô tả + nguồn).
-- **Kết quả:** tương tác và mở/đóng bảng thông tin với ít nhất 1 hiện vật placeholder.
-
-**Ngày 5 — Ghép luồng + Review mốc 1**
-
-- Hoàn thiện Main Menu (Bắt đầu/Hướng dẫn/Giới thiệu/Thoát) và màn hình hướng dẫn.
-- Ghép Menu → Museum → tương tác thành một luồng liền mạch.
-- Chạy thử trên ít nhất 2 máy, ghi bug, khóa layout chính, tạo bản build `Prototype_v0.1`.
-- **Mốc nghiệm thu tuần 1:** menu hoạt động, đi lại được, 3 khu blockout, 1 hiện vật tương tác mẫu và danh mục nội dung có nguồn.
-
-### Tuần 2 — Sản xuất tài sản và tính năng cốt lõi
-
-**Mục tiêu tuần:** Đủ 6 hiện vật và toàn bộ chức năng bắt buộc ở mức alpha, luồng đi được từ đầu đến cuối.
-
-**Ngày 6 — Chế độ xem hiện vật**
-
-- Làm `ExhibitViewer`: khóa di chuyển khi mở, xoay và phóng to hiện vật.
-- Hoàn thiện hiệu ứng mở/đóng panel thông tin.
-
-**Ngày 7 — Khu 1 (Ê Đê)**
-
-- Chuẩn bị/nhập hiện vật 1–2 (ưu tiên asset có sẵn + ảnh), đặt vào khu 1, viết nội dung nháp.
-
-**Ngày 8 — Khu 2 (Ba Na) + âm thanh**
-
-- Chuẩn bị hiện vật 3–4, đặt vào khu 2, viết nội dung nháp.
-- Làm `AudioManager` và Audio Guide Controller; đánh dấu hiện vật đã xem.
-
-**Ngày 9 — Khu 3 (Gia Rai) + cài đặt**
-
-- Chuẩn bị hiện vật 5–6, đặt vào khu 3, viết nội dung nháp.
-- Làm cài đặt âm lượng và độ nhạy chuột.
-
-**Ngày 10 — Quiz + Review mốc 2**
-
-- Xây quiz 5 câu, tính điểm và màn hình kết quả; tích hợp vào luồng.
-- Kiểm tra kích thước mô hình, collider, hướng đặt và ánh sáng thử.
-- Tạo bản build `Alpha_v0.1`, chơi từ đầu đến cuối và phân loại bug P0/P1/P2/P3.
-- **Mốc nghiệm thu tuần 2:** đủ 3 khu, 6 hiện vật, bảng thông tin, xoay mô hình, audio guide mẫu và quiz hoạt động. Hình ảnh có thể chưa hoàn thiện nhưng luồng phải đầy đủ.
-
-### Tuần 3 — Hoàn thiện nội dung, hình ảnh và trải nghiệm
-
-**Mục tiêu tuần:** Đưa alpha thành beta hoàn chỉnh về nội dung và gần đạt chất lượng trình bày cuối.
-
-**Ngày 11 — Sửa lỗi + thay placeholder**
-
-- Sửa toàn bộ lỗi P0/P1 của `Alpha_v0.1`.
-- Thay các asset placeholder quan trọng; rà soát tên gọi, chính tả, nguồn và tính nhất quán.
-
-**Ngày 12 — Vật liệu + thu âm**
-
-- Hoàn thiện vật liệu tủ kính, sàn, tường và trang phục; tối ưu thao tác xem và khoảng cách tương tác.
-- Thu âm chính thức cho các đoạn thuyết minh (tối thiểu 3 đoạn 30–60 giây).
-
-**Ngày 13 — Ánh sáng + tối ưu**
-
-- Bake lighting và light probe; cấu hình occlusion culling, LOD hoặc giảm mesh cho vật thể nặng.
-- Chuẩn hóa texture (ưu tiên 1K–2K), nén âm thanh; hoàn thiện âm thanh môi trường, nút bấm và tương tác.
-
-**Ngày 14 — Biển chỉ dẫn, nội dung phụ trợ + khóa nội dung**
-
-- Thêm biển chỉ dẫn, hướng dẫn điều khiển và phản hồi khi tương tác.
-- Hoàn thiện trang Giới thiệu, Credits và Tài liệu tham khảo.
-- **Kiểm tra nội dung văn hóa lần cuối với giảng viên/người am hiểu và KHÓA nội dung.**
-- Kiểm tra UI ở 1920×1080, 1600×900 và 1366×768.
-
-**Ngày 15 — Beta + user test + Review mốc 3**
-
-- Đóng băng tính năng: không thêm tính năng mới sau ngày này.
-- Tạo bản `Beta_v0.5`, kiểm thử trên ít nhất 2–3 máy.
-- Mời 3–5 người ngoài trải nghiệm mà không hướng dẫn trực tiếp; ghi thời gian hoàn thành, điểm bị lạc, nội dung khó đọc và lỗi.
-- **Mốc nghiệm thu tuần 3:** nội dung đã có và đã khóa, không còn placeholder quan trọng, ánh sáng và âm thanh gần hoàn chỉnh, người mới tự hoàn thành được trải nghiệm.
-
-### Tuần 4 — Kiểm thử, tối ưu và đóng gói
-
-**Mục tiêu tuần:** Có bản Release ổn định cùng đầy đủ hồ sơ bảo vệ.
-
-**Ngày 16 — Sửa lỗi user test**
-
-- Sửa P0/P1 từ user test; điều chỉnh chỉ dẫn ở nơi người dùng hay bị lạc.
-- Rút gọn đoạn văn dài (đọc được trong 20–40 giây); kiểm tra mọi liên kết nguồn và credits.
-
-**Ngày 17 — Tối ưu hiệu năng**
-
-- Dùng Unity Profiler kiểm tra CPU, GPU, memory và draw call.
-- Giảm texture quá lớn, vật thể/đèn realtime không cần thiết; kiểm tra rò rỉ âm thanh, scene load và nút thoát.
-- Tạo `Release Candidate 1`.
-
-**Ngày 18 — Hồi quy + tài liệu**
-
-- Chạy lại toàn bộ test case trên máy sạch; sửa P1 còn lại và P2 ảnh hưởng rõ đến trình bày.
-- Hoàn thiện README/hướng dẫn chạy; chụp ảnh màn hình chất lượng cao cho báo cáo và slide.
-
-**Ngày 19 — Video + báo cáo + slide**
-
-- Tạo video demo 3–5 phút: mở đầu, mục tiêu, luồng tham quan, hiện vật, quiz và kết luận.
-- Hoàn thành báo cáo và slide; tạo `Release Candidate 2` và thử trên thiết bị trình chiếu.
-
-**Ngày 20 — Đóng gói và diễn tập**
-
-- Chỉ sửa lỗi nghiêm trọng; không thay đổi kiến trúc hoặc nội dung lớn.
-- Đóng gói `Release_v1.0`, source code, báo cáo, slide, video và tài liệu tham khảo.
-- Kiểm tra file sau khi sao chép sang USB và tải từ cloud; diễn tập thuyết trình 2 lần (đúng kịch bản và xử lý tình huống lỗi).
-- Chuẩn bị video demo offline làm phương án dự phòng.
-- **Mốc nghiệm thu tuần 4:** `Release_v1.0` chạy ổn định, đầy đủ tài liệu, video và phương án trình bày dự phòng.
-
-## 7. Kiến trúc kỹ thuật đề xuất
-
-### 7.1. Scene
-
-- `Bootstrap`: khởi tạo các manager và tải cấu hình.
-- `MainMenu`: menu, hướng dẫn, credits và thoát.
-- `Museum`: toàn bộ không gian bảo tàng và các khu trưng bày.
-
-Giữ toàn bộ bảo tàng trong một scene vì quy mô nhỏ, giảm rủi ro chuyển scene. Chỉ tách scene nếu thời gian tải hoặc dung lượng thật sự trở thành vấn đề.
-
-### 7.2. Module chính
-
-- `GameManager`: quản lý trạng thái chung.
-- `PlayerController`: di chuyển, nhìn và khóa điều khiển.
-- `InteractionController`: raycast và gọi hành vi của đối tượng.
-- `ExhibitData`: tên, dân tộc, mô tả, ảnh, âm thanh, nguồn và prefab.
-- `ExhibitViewer`: hiển thị, xoay và zoom hiện vật.
-- `UIManager`: mở/đóng panel, menu và thông báo.
-- `AudioManager`: nhạc nền, hiệu ứng và thuyết minh.
-- `QuizManager`: câu hỏi, đáp án, điểm và kết quả.
-- `SettingsManager`: âm lượng, độ nhạy và chất lượng đồ họa.
-
-### 7.3. Cấu trúc thư mục Unity
+- Main Menu.
+- Pause Menu.
+- Information Panel.
+- Settings UI.
+- Quiz UI.
+- Result Screen.
+- Interaction prompt.
+- Audio/SFX/voice processing.
+- Test case.
+- Bug report.
+- User test.
+- Hỗ trợ README/video/slide.
+
+### 7.1. Trách nhiệm chung
+
+Cả 4 thành viên:
+
+- Pull trước khi bắt đầu làm.
+- Làm trên branch riêng.
+- Không sửa file/scene người khác đang giữ nếu chưa trao đổi.
+- Commit rõ ràng.
+- Review build cuối tuần.
+- Test phần mình làm trước khi merge.
+- Hỗ trợ regression test trước release.
+
+---
+
+## 8. Chiến lược tránh conflict Unity
+
+Scene và prefab nhị phân/serialized là nguồn conflict lớn, vì vậy phân quyền asset rõ ràng.
+
+Đề xuất:
+
+```text
+GP      → Bootstrap, gameplay prefabs, scripts
+ENV     → Museum scene + environment prefabs
+CONT    → Exhibit prefabs/data/content
+UITEST  → MainMenu + UI prefabs + quiz assets
+```
+
+Không để hai người đồng thời chỉnh cùng một scene/prefab lớn.
+
+Ưu tiên prefab hóa:
+
+- Exhibit.
+- Display case.
+- UI.
+- Interaction point.
+- Sign.
+- Quiz components.
+
+Khi cần tích hợp vào `Museum`, ENV hoặc GP làm người tích hợp theo thời điểm đã thống nhất.
+
+---
+
+## 9. Kiến trúc kỹ thuật
+
+### 9.1. Scene
+
+```text
+Bootstrap
+MainMenu
+Museum
+```
+
+`Bootstrap`:
+
+- Khởi tạo manager cần tồn tại.
+- Load configuration.
+
+`MainMenu`:
+
+- Main menu.
+- Instructions.
+- About/Credits.
+- Settings.
+
+`Museum`:
+
+- Player.
+- Environment.
+- Exhibits.
+- Navigation.
+- Quiz area.
+
+Giữ bảo tàng trong một scene nếu hiệu năng cho phép.
+
+### 9.2. Module
+
+```text
+GameManager
+├── PlayerController
+├── InteractionController
+├── UIManager
+├── AudioManager
+├── SettingsManager
+└── QuizManager
+
+Exhibit
+├── ExhibitData
+├── ExhibitInteractable
+└── ExhibitViewer
+```
+
+### 9.3. Cấu trúc Assets
 
 ```text
 Assets/
 ├── _Project/
 │   ├── Art/
-│   │   ├── Characters/
 │   │   ├── Costumes/
 │   │   ├── Environment/
 │   │   ├── Materials/
@@ -323,7 +538,12 @@ Assets/
 │   │   ├── SFX/
 │   │   └── VoiceOver/
 │   ├── Data/
+│   │   ├── Exhibits/
+│   │   └── Quiz/
 │   ├── Prefabs/
+│   │   ├── Environment/
+│   │   ├── Exhibits/
+│   │   └── UI/
 │   ├── Scenes/
 │   ├── Scripts/
 │   │   ├── Core/
@@ -336,189 +556,488 @@ Assets/
 └── Plugins/
 ```
 
-### 7.4. Quy tắc asset
+---
 
-- Mô hình: `SM_TenDoiTuong` cho static mesh, `SK_TenDoiTuong` cho skinned mesh.
-- Material: `M_TenVatLieu`.
-- Texture: `T_TenDoiTuong_Loai`, ví dụ `T_Ao_EDe_BaseColor`.
-- Prefab: `PF_TenDoiTuong`.
-- Scene: `SC_TenScene`.
-- Script C#: tên PascalCase và trùng tên class.
-- Audio: `VO_`, `SFX_`, `BGM_` theo loại.
-- Không dùng tên file như `new`, `final`, `final2` hoặc tiếng Việt có dấu trong tên asset.
+## 10. Quy tắc đặt tên
 
-## 8. Quy trình Git khi làm một mình
+- Static Mesh: `SM_Name`
+- Skinned Mesh: `SK_Name`
+- Material: `M_Name`
+- Texture: `T_Name_Type`
+- Prefab: `PF_Name`
+- ScriptableObject: `SO_Name`
+- Audio Voice: `VO_Name`
+- SFX: `SFX_Name`
+- BGM: `BGM_Name`
+- Scene: `SC_Name` nếu nhóm muốn áp dụng prefix nhất quán.
+- Script: PascalCase và trùng tên class.
 
-Không còn xung đột nhiều người nên quy trình được tinh gọn, nhưng vẫn giữ kỷ luật để có thể quay lui an toàn.
+Không dùng tên kiểu `final`, `final2`, `new`, `test123`.
 
-### 8.1. Nhánh làm việc
+---
 
-- `main`: chỉ chứa phiên bản đã ổn định và có thể build; tag mỗi mốc (`Prototype_v0.1`, `Alpha_v0.1`, `Beta_v0.5`, `Release_v1.0`).
-- `develop`: nơi làm việc hằng ngày; merge vào `main` ở mỗi mốc.
-- `feature/<ten-tinh-nang>` hoặc `fix/<ten-loi>`: tùy chọn cho các thay đổi lớn/rủi ro để dễ hoàn tác.
+## 11. Git Workflow
 
-### 8.2. Quy tắc commit
+### 11.1. Branch
 
-- Commit nhỏ, mô tả rõ: `feat: add exhibit interaction`, `fix: prevent player falling`, `art: add Ede exhibit textures`.
-- Mỗi ngày commit và đẩy ít nhất một lần khi phần đang làm ở trạng thái an toàn.
-- Tag và tạo build ở mỗi mốc; sao lưu build ở hai nơi (USB + cloud).
-- Không commit thư mục `Library`, `Temp`, `Logs`, `Obj`, `Build` và file build lớn.
+```text
+main
+└── develop
+    ├── feature/player-controller
+    ├── feature/exhibit-system
+    ├── feature/environment
+    ├── feature/ui
+    ├── feature/quiz
+    └── fix/...
+```
 
-### 8.3. Nhịp làm việc cá nhân
+### 11.2. Quy trình
 
-- Đầu ngày: xem lại bảng công việc, chọn đúng một mục tiêu chính cho ngày.
-- Cuối ngày: cập nhật `project_progress.md`, commit và ghi lại việc còn dở.
-- Cuối tuần: tạo build của mốc, tự review theo checklist và điều chỉnh phạm vi nếu cần.
-- Mỗi task nên hoàn thành trong 0,5–1 ngày; task lớn hơn phải chia nhỏ.
+```text
+git checkout develop
+git pull
+↓
+tạo feature branch
+↓
+thực hiện task
+↓
+test
+↓
+commit
+↓
+push
+↓
+merge/pull request vào develop
+↓
+integration test
+↓
+milestone ổn định → main
+```
 
-## 9. Quy trình nghiên cứu và kiểm duyệt văn hóa
+### 11.3. Commit convention
 
-Đây là phần có mức ưu tiên ngang với kỹ thuật. Nội dung đẹp nhưng sai hoặc gán nhầm dân tộc sẽ làm giảm nghiêm trọng chất lượng đề tài. Khi làm một mình, **không có review chéo nội bộ**, nên bắt buộc phải có ít nhất một lần kiểm tra từ người bên ngoài.
+Ví dụ:
 
-### 9.1. Thứ tự ưu tiên nguồn
+```text
+feat: add player interaction
+feat: add exhibit viewer
+art: add museum display cabinet
+content: add Ede exhibit data
+ui: add quiz result panel
+fix: prevent player falling through floor
+perf: optimize museum lighting
+docs: update project progress
+```
 
-1. Bảo tàng, cơ quan văn hóa, thư viện hoặc cơ sở dữ liệu chính thức.
-2. Sách, bài báo khoa học, luận văn và tài liệu của nhà nghiên cứu có chuyên môn.
-3. Tài liệu từ cộng đồng, nghệ nhân hoặc phỏng vấn có ghi rõ người cung cấp.
+Không commit:
+
+```text
+Library/
+Temp/
+Logs/
+Obj/
+Build/
+```
+
+---
+
+## 12. Kế hoạch 4 tuần
+
+### Tuần 1 — Prototype
+
+**Mục tiêu:** Có bảo tàng blockout và một luồng tương tác hoàn chỉnh.
+
+**GP**
+- Project architecture.
+- Player movement/camera.
+- Interaction.
+- Pause.
+- Exhibit prototype.
+
+**ENV**
+- Layout.
+- Blockout sảnh + 3 khu + quiz.
+- Collider.
+- Display case prototype.
+
+**CONT**
+- Chọn 6 hiện vật.
+- Thu thập nguồn.
+- Chuẩn bị exhibit mẫu.
+- Tìm asset/mannequin.
+
+**UITEST**
+- Wireframe.
+- Main Menu.
+- Information Panel.
+- Interaction prompt.
+- Test template.
+
+**Cuối tuần:**
+
+`Prototype_v0.1`
+
+Điều kiện:
+- Menu → Museum hoạt động.
+- Đi lại được.
+- 3 khu đã blockout.
+- 1 hiện vật tương tác hoàn chỉnh.
+
+### Tuần 2 — Alpha
+
+**GP**
+- `ExhibitData`.
+- Viewer.
+- Audio integration.
+- Settings integration.
+- Quiz integration.
+
+**ENV**
+- Hoàn thiện cấu trúc 3 khu.
+- Display area.
+- Signs.
+- Lighting pass 1.
+
+**CONT**
+- Hoàn thành 6 hiện vật.
+- Nội dung nháp.
+- Material/texture.
+- Voice-over script.
+
+**UITEST**
+- UI đầy đủ.
+- Quiz 5 câu.
+- Settings UI.
+- Audio prototype.
+
+**Cuối tuần:**
+
+`Alpha_v0.1`
+
+Điều kiện:
+- 3 khu.
+- 6 hiện vật.
+- Viewer.
+- Audio prototype.
+- Quiz.
+- End-to-end flow.
+
+### Tuần 3 — Beta
+
+**GP**
+- Sửa P0/P1.
+- Polish interaction.
+- State handling.
+
+**ENV**
+- Material.
+- Lighting.
+- Bake.
+- Optimization.
+
+**CONT**
+- Xác minh nội dung.
+- Hoàn thiện nguồn.
+- Khóa nội dung.
+- Chuẩn hóa 6 hiện vật.
+
+**UITEST**
+- Voice-over chính thức.
+- Audio polish.
+- Responsive UI.
+- User test 3–5 người.
+
+**Cuối tuần:**
+
+`Beta_v0.5`
+
+Sau Beta: **Feature Freeze**.
+
+### Tuần 4 — Release
+
+Cả nhóm ưu tiên:
+
+1. P0.
+2. P1.
+3. Performance.
+4. Regression.
+5. Documentation.
+6. Presentation.
+
+Các mốc:
+
+- `ReleaseCandidate_v0.9`
+- `Release_v1.0`
+
+---
+
+## 13. Quy trình nội dung văn hóa
+
+### 13.1. Nguồn ưu tiên
+
+1. Bảo tàng/cơ quan văn hóa/thư viện.
+2. Sách và nghiên cứu học thuật.
+3. Tài liệu từ cộng đồng/nghệ nhân có thông tin rõ.
 4. Báo chí uy tín.
-5. Blog và mạng xã hội chỉ dùng để tìm đầu mối, không dùng làm nguồn duy nhất.
+5. Blog/mạng xã hội chỉ dùng để tìm đầu mối.
 
-### 9.2. Thông tin cần lưu cho mỗi hiện vật
+### 13.2. Hồ sơ hiện vật
 
-- Mã hiện vật nội bộ.
-- Tên gọi và các cách viết khác nếu có.
-- Dân tộc/cộng đồng liên quan.
-- Giới tính hoặc đối tượng sử dụng nếu nguồn có nêu.
-- Dịp sử dụng.
-- Chất liệu và kỹ thuật chế tác.
-- Ý nghĩa họa tiết chỉ khi có nguồn xác nhận.
-- Địa bàn và giai đoạn tư liệu.
-- Nguồn văn bản, nguồn ảnh, giấy phép và ngày truy cập.
-- Người viết và người kiểm tra nội dung (ghi rõ người bên ngoài đã review).
+Mỗi hiện vật cần lưu:
 
-### 9.3. Nguyên tắc trình bày
+- ID.
+- Tên.
+- Cộng đồng liên quan.
+- Đối tượng sử dụng nếu nguồn nêu.
+- Chất liệu.
+- Kỹ thuật.
+- Hoàn cảnh sử dụng.
+- Địa bàn/giai đoạn.
+- Mô tả.
+- Nguồn văn bản.
+- Nguồn hình.
+- Nguồn model.
+- License.
+- Ngày truy cập.
+- Trạng thái kiểm duyệt.
 
-- Không khẳng định mọi thành viên của một dân tộc đều mặc giống nhau.
-- Ghi rõ biến thể theo địa phương hoặc thời kỳ nếu tài liệu cho phép.
-- Không tự suy diễn ý nghĩa màu sắc và họa tiết.
-- Không dùng hình ảnh hoặc mô hình tải trên mạng khi chưa rõ quyền sử dụng.
-- Không trộn trang phục, nhạc cụ, kiến trúc và họa tiết của các cộng đồng khác nhau chỉ để trang trí.
-- Nếu chưa xác minh được chi tiết, dùng mô tả trung tính hoặc loại bỏ chi tiết đó.
+### 13.3. Nguyên tắc
 
-## 10. Kiểm thử và tiêu chuẩn nghiệm thu
+Không:
 
-### 10.1. Mức độ lỗi
+- Tự suy diễn ý nghĩa màu sắc/họa tiết.
+- Trộn biểu tượng của các cộng đồng để trang trí tùy ý.
+- Dùng asset không rõ license.
+- Khẳng định một biến thể trang phục đại diện cho toàn bộ cộng đồng.
 
-- **P0 – Chặn hoàn toàn:** không mở được game, crash, mất scene hoặc hỏng dữ liệu. Sửa ngay.
-- **P1 – Nghiêm trọng:** không thể tương tác, mắc kẹt, không hoàn thành quiz, âm thanh không dừng. Phải sửa trước release.
-- **P2 – Trung bình:** UI lệch, sai ánh sáng, animation không mượt, lỗi chính tả. Sửa nếu còn thời gian sau P0/P1.
-- **P3 – Nhỏ:** chi tiết thẩm mỹ ít ảnh hưởng. Ghi nhận nhưng không được làm trễ release.
+Nếu không xác minh được thông tin, sử dụng mô tả trung tính hoặc loại bỏ.
 
-### 10.2. Test case bắt buộc
+---
 
-1. Mở ứng dụng từ file `.exe` trên máy không cài Unity.
-2. Tất cả nút menu hoạt động đúng.
-3. Người dùng không đi xuyên tường, rơi khỏi sàn hoặc bị kẹt.
-4. Tương tác được với đủ 6 hiện vật.
-5. Bảng thông tin đúng hiện vật, không tràn chữ và đóng được.
-6. Khi xem hiện vật, người dùng xoay/zoom được và quay lại chế độ đi lại được.
-7. Mỗi thuyết minh phát đúng, không phát chồng và chịu ảnh hưởng của âm lượng.
-8. Quiz hiển thị đủ câu, tính điểm đúng và có thể chơi lại.
-9. Pause/resume không làm mất chuột hoặc khóa điều khiển sai.
-10. Quay lại menu rồi vào lại bảo tàng không gây lỗi trạng thái.
-11. Giao diện hiển thị tốt ở ba độ phân giải mục tiêu.
-12. Chơi liên tục 15–20 phút không crash hoặc tăng bộ nhớ bất thường.
+## 14. Kiểm thử
 
-### 10.3. Chỉ tiêu hiệu năng
+### 14.1. Mức lỗi
 
-- Mục tiêu: 60 FPS; ngưỡng chấp nhận: trung bình 45 FPS trên máy kiểm thử.
-- Không dùng texture 4K trừ một số hiện vật thật sự cần thiết; ưu tiên 1K–2K.
-- Hạn chế đèn realtime; ưu tiên baked lighting.
-- Dùng collider đơn giản thay vì Mesh Collider khi có thể.
-- Nén audio phù hợp và tránh nạp đồng thời toàn bộ file dài.
-- Kiểm tra profiler trước khi giảm chất lượng hình ảnh một cách cảm tính.
+**P0 — Blocker**
+- Crash.
+- Không mở game.
+- Scene lỗi.
+- Không thể tiếp tục trải nghiệm.
 
-## 11. Quản lý rủi ro
+**P1 — Critical**
+- Player mắc kẹt.
+- Interaction không hoạt động.
+- Quiz không hoàn thành.
+- Audio lỗi nghiêm trọng.
 
-### Rủi ro 1 — Quá tải vì làm một mình
+**P2 — Medium**
+- UI lệch.
+- Material/lighting lỗi.
+- Chính tả.
+- Animation không mượt.
 
-- **Khả năng:** cao; **ảnh hưởng:** cao.
-- **Xử lý:** giữ WIP = 1, bám sát mục tiêu ngày, ưu tiên luồng MVP; dùng asset/ảnh có sẵn thay vì tự dựng; cắt độ chi tiết trước khi cắt luồng.
-- **Mốc quyết định:** cuối mỗi tuần, nếu trễ mốc thì áp dụng ngay mục 15.
+**P3 — Minor**
+- Lỗi thẩm mỹ nhỏ.
 
-### Rủi ro 2 — Không kịp dựng đủ trang phục
+### 14.2. Regression Test
 
-- **Khả năng:** cao.
-- **Xử lý:** ưu tiên mannequin chung + asset có giấy phép + ảnh tư liệu; mỗi khu chỉ cần 2 hiện vật; chấp nhận mô hình đơn giản kết hợp ảnh nếu được ghi rõ.
-- **Mốc quyết định:** cuối ngày 9. Nếu chưa đủ 6 hiện vật, giảm độ chi tiết thay vì tăng giờ làm vô hạn.
+Trước release phải kiểm tra:
 
-### Rủi ro 3 — Nội dung văn hóa sai hoặc thiếu nguồn
+- Build mở được.
+- Menu hoạt động.
+- Player movement đúng.
+- Không xuyên tường/rơi.
+- 6/6 exhibit tương tác.
+- Information Panel đúng.
+- Viewer xoay/zoom.
+- Audio không chồng.
+- Volume hoạt động.
+- Pause/resume đúng.
+- Quiz tính điểm đúng.
+- Restart quiz đúng.
+- Return menu đúng.
+- UI không tràn.
+- Chơi 20 phút không crash.
 
-- **Khả năng:** trung bình; **ảnh hưởng:** rất cao.
-- **Xử lý:** tạo danh mục nguồn từ tuần 1, nhờ giảng viên/người am hiểu review, loại bỏ khẳng định không xác minh được.
-- **Mốc quyết định:** khóa nội dung vào ngày 14.
+---
 
-### Rủi ro 4 — Hiệu năng thấp
+## 15. Performance Budget
 
-- **Khả năng:** trung bình.
-- **Xử lý:** giới hạn polygon/texture từ đầu, dùng baked lighting, kiểm tra profiler ở tuần 2 và tuần 4, có preset Low/Medium.
+Mục tiêu:
 
-### Rủi ro 5 — Thêm quá nhiều tính năng
+- 60 FPS.
+- Tối thiểu trung bình 45 FPS trên máy mục tiêu.
 
-- **Khả năng:** cao.
-- **Xử lý:** ưu tiên MVP; đóng băng tính năng ngày 15; mọi ý tưởng mới đưa vào danh sách mở rộng thay vì làm ngay.
+Nguyên tắc:
 
-### Rủi ro 6 — Mất dữ liệu hoặc máy hỏng (không có người backup thay)
+- Texture chủ yếu 1K–2K.
+- 4K chỉ khi thật sự cần.
+- Baked lighting ưu tiên.
+- Hạn chế realtime light.
+- Collider đơn giản.
+- LOD với mesh nặng nếu cần.
+- Occlusion Culling khi có lợi.
+- Nén audio.
+- Dùng Unity Profiler trước khi quyết định giảm chất lượng.
 
-- **Khả năng:** trung bình; **ảnh hưởng:** rất cao.
-- **Xử lý:** đẩy Git hằng ngày, giữ bản sao ở hai nơi (USB + cloud); tag build ở mỗi mốc.
+---
 
-### Rủi ro 7 — Máy thuyết trình không chạy được
+## 16. Quản lý rủi ro
 
-- **Khả năng:** trung bình.
-- **Xử lý:** thử build trên máy trình chiếu trước ngày 19; mang theo build ở USB và cloud; chuẩn bị video demo offline.
+### Conflict Git
 
-## 12. Danh sách bàn giao cuối dự án
+**Giải pháp:** chia quyền scene/prefab, branch riêng, pull thường xuyên và prefab hóa.
 
-- `MuseumTayNguyen_v1.0_Windows.zip` chứa bản build.
-- Source Unity đã loại bỏ thư mục cache không cần thiết.
-- File README hướng dẫn cài đặt, điều khiển và cấu hình.
-- Báo cáo dự án.
-- Slide thuyết trình.
-- Video demo 3–5 phút.
-- Ảnh chụp màn hình/poster.
-- Danh mục nguồn nội dung, hình ảnh, âm thanh, font và asset 3D (kèm giấy phép).
-- Danh sách lỗi đã biết nếu còn.
-- File dự phòng trên ít nhất hai nơi lưu trữ khác nhau.
+### Asset trang phục khó tìm
 
-## 13. Kịch bản thuyết trình đề xuất
+**Giải pháp:** mannequin + asset có license + hình ảnh tư liệu; không đặt mục tiêu tự dựng tất cả.
 
-Vì trình bày một mình, tổng thời lượng nên gọn 8–10 phút:
+### Nội dung văn hóa sai
 
-1. **Mở đầu — 1,5 phút:** vấn đề, mục tiêu và phạm vi (nói rõ giới hạn 3 dân tộc).
-2. **Kỹ thuật & môi trường — 2 phút:** kiến trúc hệ thống, thiết kế không gian và tối ưu.
-3. **Nội dung & kiểm duyệt văn hóa — 2 phút:** nghiên cứu trang phục, nguồn tư liệu và quy trình kiểm tra với người am hiểu.
-4. **Demo trực tiếp — 3 phút:** menu, một khu trưng bày, thao tác xem hiện vật, audio guide và quiz.
-5. **Kết luận — 1 phút:** kết quả, hạn chế và hướng phát triển (khu thứ 4, VR, mở rộng nội dung).
+**Giải pháp:** lưu nguồn ngay từ đầu và review với giảng viên/người am hiểu trước khi khóa nội dung.
 
-## 14. Việc cần làm ngay trong buổi đầu tiên
+### Scope creep
 
-- Xác nhận cấu hình máy phát triển và máy dùng để thuyết trình.
-- Chọn chính xác phiên bản Unity LTS và render pipeline.
-- Tạo repository, `.gitignore`, bảng task cá nhân.
-- Chốt 3 khu và duyệt danh sách 6 hiện vật sơ bộ.
-- Vẽ mặt bằng bảo tàng trên một trang giấy hoặc Figma.
-- Tạo build rỗng đầu tiên để phát hiện sớm vấn đề môi trường.
-- Đặt lịch cố định cho review cuối mỗi tuần.
+**Giải pháp:** tính năng mới đưa vào backlog; feature freeze sau Beta.
 
-## 15. Nguyên tắc ưu tiên khi thiếu thời gian
+### Hiệu năng thấp
 
-Nếu tiến độ bị chậm, giảm phạm vi theo thứ tự sau:
+**Giải pháp:** profiling, baked light, giảm mesh/texture và kiểm tra từ tuần 2.
 
-1. Bỏ tính năng mở rộng như khu thứ 4, VR, song ngữ và mini-game.
-2. Giảm đồ trang trí và hiệu ứng môi trường.
-3. Dùng một layout bảo tàng đơn giản hơn.
-4. Giảm số đoạn voice-over (nhưng giữ tối thiểu 3) nhưng vẫn giữ bảng thông tin.
-5. Giảm độ chi tiết mô hình, tăng tỷ lệ dùng ảnh tư liệu, nhưng vẫn giữ đủ 6 hiện vật.
+### Thành viên trễ task
 
-Không được cắt các phần: tính chính xác và nguồn của nội dung, luồng tham quan hoàn chỉnh, khả năng tương tác cơ bản, kiểm thử bản build và tài liệu bàn giao.
+Task chặn luồng được ưu tiên hỗ trợ chéo. Không để một thành viên tiếp tục làm polish trong khi module quan trọng của nhóm đang bị blocker.
+
+### Mất dữ liệu
+
+- GitHub.
+- Backup cloud.
+- Build milestone.
+- Không lưu duy nhất trên một máy.
+
+---
+
+## 17. Definition of Done cho một task
+
+Task chỉ được coi là hoàn thành khi:
+
+1. Chức năng/nội dung đã làm xong.
+2. Đã tự test.
+3. Không có lỗi rõ ràng.
+4. Asset đúng thư mục/tên.
+5. Không có reference mất.
+6. Commit và push.
+7. Nếu ảnh hưởng module khác, đã integration test.
+8. `project_progress.md` được cập nhật.
+
+---
+
+## 18. Milestone
+
+### M0 — Setup
+Project + Git + layout + nội dung sơ bộ.
+
+### M1 — Prototype v0.1
+Đi lại + blockout + một exhibit.
+
+### M2 — Alpha v0.1
+Toàn bộ MVP chạy end-to-end.
+
+### M3 — Beta v0.5
+Nội dung/đồ họa/audio gần hoàn thiện + user test.
+
+### M4 — Release v1.0
+Build ổn định + tài liệu + video + slide.
+
+---
+
+## 19. Bàn giao
+
+```text
+MuseumTayNguyen/
+├── Build/
+│   └── MuseumTayNguyen_v1.0_Windows/
+├── Source/
+├── Documentation/
+│   ├── Report
+│   ├── README
+│   ├── References
+│   └── KnownIssues
+├── Presentation/
+├── Screenshots/
+└── DemoVideo/
+```
+
+Bắt buộc có:
+
+- Windows build.
+- Unity source.
+- README.
+- Báo cáo.
+- Slide.
+- Video 3–5 phút.
+- Screenshot/poster.
+- References.
+- Asset licenses.
+- Known issues nếu còn.
+
+---
+
+## 20. Kịch bản demo/bảo vệ
+
+Đề xuất 8–10 phút:
+
+1. **1 phút:** Giới thiệu đề tài.
+2. **1 phút:** Mục tiêu và phạm vi.
+3. **1–2 phút:** Kiến trúc và cách nhóm 4 người thực hiện.
+4. **3–4 phút:** Demo.
+5. **1 phút:** Nội dung văn hóa/nguồn.
+6. **1 phút:** Kết quả, hạn chế và hướng phát triển.
+
+Demo ưu tiên:
+
+```text
+Main Menu
+→ Museum
+→ Di chuyển
+→ Một exhibit
+→ Information
+→ 3D Viewer
+→ Audio Guide
+→ Quiz
+→ Result
+```
+
+---
+
+## 21. Nguyên tắc khi chậm tiến độ
+
+Cắt giảm theo thứ tự:
+
+1. Toàn bộ tính năng mở rộng.
+2. Hiệu ứng trang trí.
+3. Prop không quan trọng.
+4. Post-processing.
+5. Độ chi tiết model.
+6. Số lượng audio vượt mức tối thiểu.
+
+**Không cắt:**
+
+- 3 khu.
+- 6 hiện vật.
+- Interaction cơ bản.
+- Information Panel.
+- Nội dung có nguồn.
+- Quiz.
+- Kiểm thử build.
+- Hồ sơ bàn giao.
+
+---
+
+## 22. Kết luận phạm vi
+
+Với nhóm 4 người trong 1 tháng, mục tiêu quan trọng nhất không phải tạo một bảo tàng cực lớn mà là tạo **một trải nghiệm nhỏ nhưng hoàn chỉnh**:
+
+> **3 khu trưng bày + 6 hiện vật + gameplay tham quan + tương tác + thông tin văn hóa + 3D viewer + audio guide + quiz + build ổn định.**
+
+Bốn thành viên làm song song theo module, tích hợp theo milestone hằng tuần và đóng băng tính năng sau Beta. `project_progress.md` là tài liệu vận hành hằng ngày và phải được cập nhật theo SPEC này.

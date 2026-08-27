@@ -1,446 +1,985 @@
-# PROJECT PROGRESS — BẢO TÀNG TRANG PHỤC TÂY NGUYÊN (LÀM MỘT MÌNH)
+# PROJECT PROGRESS — BẢO TÀNG ẢO TRANG PHỤC TRUYỀN THỐNG TÂY NGUYÊN
 
-## 1. Cách sử dụng tài liệu
+> Tài liệu theo dõi tiến độ dành cho **nhóm 4 thành viên**, đồng bộ với `spec_v2_4_members.md`.
 
-File này dùng để theo dõi tiến độ dự án trong 1 tháng do **một người** thực hiện. Cập nhật vào cuối mỗi ngày làm việc và tự review chính thức vào cuối mỗi milestone.
+## 1. Quy ước và phân công
 
-Quy ước trạng thái:
+### Trạng thái
 
 - `[ ]` Chưa bắt đầu.
 - `[-]` Đang thực hiện.
-- `[x]` Đã hoàn thành và được kiểm tra.
-- `[!]` Đang bị chặn hoặc có rủi ro trễ.
+- `[x]` Đã hoàn thành và kiểm tra.
+- `[!]` Bị chặn/có nguy cơ trễ.
 
-Các mảng công việc (do cùng một người đảm nhiệm luân phiên):
+### Vai trò
 
-- **GP:** Gameplay, tích hợp và build.
-- **ENV:** Môi trường 3D, ánh sáng và tối ưu.
-- **CONT:** Trang phục 3D, nghiên cứu và kiểm duyệt nội dung.
-- **UITEST:** UI/UX, âm thanh, kiểm thử và hồ sơ.
+- **GP — Thành viên 1:** Gameplay & Integration Lead.
+- **ENV — Thành viên 2:** Environment & Optimization.
+- **CONT — Thành viên 3:** Exhibit 3D & Cultural Content.
+- **UITEST — Thành viên 4:** UI/UX, Audio, Quiz & QA.
 
-Nguyên tắc cập nhật:
+### Nguyên tắc cập nhật
 
-1. Chỉ đánh dấu `[x]` khi sản phẩm đã được tích hợp hoặc có minh chứng kiểm tra.
-2. Task bị chặn quá một ngày phải chuyển thành `[!]` và ghi rõ nguyên nhân.
-3. Không bắt đầu milestone tiếp theo nếu còn tiêu chí bắt buộc của milestone hiện tại chưa đạt, trừ khi tự ghi nhận ngoại lệ có lý do.
-4. Tính năng mở rộng không được ưu tiên hơn task MVP.
-5. Giữ WIP = 1: chỉ mở một hạng mục đang làm tại một thời điểm.
-6. Cuối mỗi milestone phải tạo một bản build hoặc gói bàn giao có tên phiên bản rõ ràng.
-
-## 2. Tổng quan milestone
-
-### Milestone 0 — Khởi tạo dự án
-
-- **Thời gian:** Ngày 1.
-- **Mục tiêu:** Chốt phạm vi, công cụ, dữ liệu cần sản xuất và nền tảng làm việc.
-- **Bản bàn giao:** Project Unity khởi tạo, repository Git, sơ đồ bảo tàng, danh sách 6 hiện vật và biểu mẫu ghi nguồn.
-- **Trạng thái:** `[ ]`
-- **Tiến độ:** `0%`
-
-### Milestone 1 — Prototype có thể chơi
-
-- **Thời gian:** Ngày 2–5, kết thúc tuần 1.
-- **Mục tiêu:** Người dùng vào được bảo tàng, đi lại và tương tác với một hiện vật mẫu.
-- **Bản bàn giao:** `Prototype_v0.1`.
-- **Trạng thái:** `[ ]`
-- **Tiến độ:** `0%`
-
-### Milestone 2 — Alpha đầy đủ chức năng
-
-- **Thời gian:** Ngày 6–10, kết thúc tuần 2.
-- **Mục tiêu:** Hoàn thành toàn bộ luồng chức năng MVP với 3 khu và 6 hiện vật.
-- **Bản bàn giao:** `Alpha_v0.1`.
-- **Trạng thái:** `[ ]`
-- **Tiến độ:** `0%`
-
-### Milestone 3 — Beta hoàn chỉnh nội dung
-
-- **Thời gian:** Ngày 11–15, kết thúc tuần 3.
-- **Mục tiêu:** Hoàn thiện hình ảnh, âm thanh, nội dung và kiểm thử với người ngoài.
-- **Bản bàn giao:** `Beta_v0.5`.
-- **Trạng thái:** `[ ]`
-- **Tiến độ:** `0%`
-
-### Milestone 4 — Release và bảo vệ
-
-- **Thời gian:** Ngày 16–20, kết thúc tuần 4.
-- **Mục tiêu:** Sửa lỗi, tối ưu, đóng gói ứng dụng và hoàn thiện hồ sơ bảo vệ.
-- **Bản bàn giao:** `Release_v1.0` cùng báo cáo, slide và video demo.
-- **Trạng thái:** `[ ]`
-- **Tiến độ:** `0%`
+1. Mỗi thành viên cập nhật phần việc của mình cuối ngày.
+2. Chỉ đánh dấu `[x]` khi task đã được tự test.
+3. Task ảnh hưởng module khác chỉ hoàn thành sau integration test.
+4. Task bị chặn phải chuyển `[!]` và ghi nguyên nhân.
+5. P0/P1 luôn ưu tiên hơn polish.
+6. Không tự ý chỉnh scene/prefab thuộc quyền thành viên khác.
+7. Mỗi milestone phải có build/tag rõ ràng.
+8. Sau Beta không thêm tính năng mới.
+9. Mọi nội dung/asset văn hóa phải có nguồn và license phù hợp.
 
 ---
 
-## 3. Milestone 0 — Khởi tạo dự án
+# 2. Dashboard tổng thể
 
-### Mục tiêu
+| Milestone | Thời gian | Mục tiêu | Build | Trạng thái |
+|---|---|---|---|---|
+| M0 | Ngày 1 | Setup dự án và thống nhất workflow | — | `[-]` |
+| M1 | Tuần 1 | Prototype chơi được | `Prototype_v0.1` | `[ ]` |
+| M2 | Tuần 2 | MVP end-to-end | `Alpha_v0.1` | `[ ]` |
+| M3 | Tuần 3 | Nội dung + hình ảnh + user test | `Beta_v0.5` | `[ ]` |
+| M4 | Tuần 4 | Tối ưu + đóng gói | `Release_v1.0` | `[ ]` |
 
-Tạo nền tảng làm việc thống nhất để bắt đầu sản xuất mà không vướng về phiên bản, phạm vi hoặc định dạng dữ liệu.
+## Tiến độ hiện tại
 
-### Checklist công việc
-
-- [x] (GP) Chốt phiên bản Unity LTS và render pipeline.
-- [x] (GP) Tạo project Unity và kiểm tra project mở/chạy được.
-- [x] (GP) Tạo repository Git và `.gitignore` cho Unity.
-- [x] (GP) Tạo các nhánh `main` và `develop`.
-- [x] (GP) Tạo cấu trúc thư mục trong `Assets/_Project`.
-- [x] (GP) Tạo các scene `Bootstrap`, `MainMenu` và `Museum`.
-- [x] (GP) Tạo bảng quản lý task cá nhân (Trello/Notion/GitHub Projects).
-- [ ] (ENV) Vẽ sơ đồ mặt bằng gồm sảnh, 3 khu trưng bày và khu quiz.
-- [ ] (ENV) Xác định tỷ lệ, kích thước hành lang và vị trí hiện vật.
-- [ ] (ENV) Chốt phong cách ánh sáng và hình ảnh tham chiếu.
-- [ ] (CONT) Chọn 3 khu đại diện: Ê Đê, Ba Na và Gia Rai.
-- [ ] (CONT) Lập danh sách sơ bộ 6 hiện vật.
-- [ ] (CONT) Tạo biểu mẫu lưu nguồn, giấy phép và ngày truy cập.
-- [ ] (CONT) Đánh giá độ khó khi dựng từng hiện vật và đánh dấu hiện vật dùng asset/ảnh có sẵn.
-- [ ] (UITEST) Vẽ wireframe menu chính, bảng thông tin, chế độ xem 3D và quiz.
-- [ ] (UITEST) Tạo bản nháp hướng dẫn điều khiển và mẫu test case/báo cáo bug.
-
-### Điều kiện nghiệm thu
-
-- [ ] Clone, mở và chạy được project.
-- [ ] Không commit các thư mục cache như `Library`, `Temp`, `Logs`, `Obj`.
-- [ ] Có sơ đồ bảo tàng 3 khu đã duyệt.
-- [ ] Có danh sách 6 hiện vật khả thi và nguồn ban đầu.
-- [ ] Có wireframe của tất cả màn hình chính.
-
-### Review milestone
-
-- **Ngày review:** `____ / ____ / ______`
-- **Kết quả:** `Đạt / Đạt có điều kiện / Chưa đạt`
-- **Vấn đề còn lại:** `________________________________________`
-- **Quyết định:** `____________________________________________`
+- **Milestone:** `M0 — Setup`
+- **Tiến độ tổng:** `_____ %`
+- **Build mới nhất:** `Chưa có`
+- **P0:** `0`
+- **P1:** `0`
+- **P2:** `0`
+- **P3:** `0`
+- **Ngày cập nhật:** `____ / ____ / 2026`
 
 ---
 
-## 4. Milestone 1 — Prototype có thể chơi
+# 3. M0 — SETUP
 
-### Mục tiêu
+## Mục tiêu
 
-Chứng minh luồng kỹ thuật cốt lõi: mở game, vào bảo tàng, di chuyển, nhìn, tương tác và xem thông tin hiện vật.
+Thiết lập project, Git, cấu trúc Unity, phạm vi nội dung và nguyên tắc phối hợp nhóm.
 
-### Checklist công việc
+## GP — Gameplay & Integration
 
-- [ ] (GP) Hoàn thiện di chuyển bằng `WASD`.
-- [ ] (GP) Hoàn thiện điều khiển camera bằng chuột.
-- [ ] (GP) Thêm va chạm và giới hạn để người chơi không rơi khỏi bản đồ.
-- [ ] (GP) Thêm khóa/mở con trỏ đúng trạng thái.
-- [ ] (GP) Tạo raycast tương tác và lời nhắc nhấn `E`.
-- [ ] (GP) Mở/đóng được bảng thông tin của một hiện vật mẫu.
-- [ ] (GP) Tạo menu tạm dừng cơ bản.
-- [ ] (ENV) Blockout sảnh chính và đủ 3 khu trưng bày.
-- [ ] (ENV) Tạo lối đi và vị trí khu quiz.
-- [ ] (ENV) Thêm collider cho toàn bộ sàn và tường.
-- [ ] (ENV) Đặt bục hoặc tủ trưng bày mẫu.
-- [ ] (CONT) Chuẩn hóa ít nhất 1 mannequin hoặc mô hình trang phục mẫu.
-- [ ] (CONT) Viết nội dung thử và chuẩn bị ảnh/nguồn cho hiện vật mẫu.
-- [ ] (CONT) Bắt đầu nội dung nháp cho 2 khu đầu tiên.
-- [ ] (UITEST) Hoàn thiện menu Bắt đầu, Hướng dẫn, Giới thiệu và Thoát.
-- [ ] (UITEST) Tạo prefab bảng thông tin hiển thị đúng tên, ảnh, mô tả và nguồn.
-- [ ] (UITEST) Kiểm tra cỡ chữ và độ tương phản ở 1920×1080.
+- [x] Chọn phiên bản Unity/render pipeline.
+- [x] Tạo Unity project.
+- [x] Tạo Git repository.
+- [x] Thêm `.gitignore` Unity.
+- [x] Tạo `main`.
+- [x] Tạo `develop`.
+- [x] Tạo cấu trúc `Assets/_Project`.
+- [x] Tạo các scene `Bootstrap`, `MainMenu`, `Museum`.
+- [x] Tạo bảng quản lý task.
+- [ ] Kiểm tra clone project trên máy thành viên khác.
+- [ ] Thống nhất Git workflow.
+- [ ] Thiết lập quy tắc prefab/scene ownership.
 
-### Điều kiện nghiệm thu
+## ENV — Environment
 
-- [ ] Mở game từ menu và vào được scene Museum.
-- [ ] Đi qua được sảnh và cả 3 khu blockout.
-- [ ] Không đi xuyên tường hoặc rơi khỏi sàn trong luồng bình thường.
-- [ ] Có ít nhất một hiện vật tương tác hoàn chỉnh.
-- [ ] Bảng thông tin mở, hiển thị đúng dữ liệu và đóng được.
-- [ ] Menu tạm dừng hoạt động.
-- [ ] Có bản build `Prototype_v0.1` chạy trên ít nhất 2 máy.
+- [ ] Vẽ layout sảnh + 3 khu + quiz.
+- [ ] Xác định kích thước bảo tàng.
+- [ ] Xác định vị trí 6 hiện vật.
+- [ ] Xác định vị trí biển chỉ dẫn.
+- [ ] Chọn asset/environment chính.
+- [ ] Kiểm tra license asset.
+- [ ] Tạo moodboard/phong cách ánh sáng.
 
-### Tiêu chí Go/No-Go
+## CONT — Content
 
-- **Go:** Controller ổn định, interaction hoạt động và layout không gây mắc kẹt.
-- **No-Go:** Chưa tạo được build hoặc không thể hoàn thành luồng menu → bảo tàng → tương tác mẫu.
+- [ ] Chốt khu Ê Đê.
+- [ ] Chốt khu Ba Na.
+- [ ] Chốt khu Gia Rai.
+- [ ] Chọn 6 hiện vật.
+- [ ] Tạo ID cho 6 hiện vật.
+- [ ] Tìm nguồn ban đầu.
+- [ ] Tạo biểu mẫu hồ sơ hiện vật.
+- [ ] Kiểm tra khả năng tìm model/ảnh.
+- [ ] Đánh dấu asset cần tự chỉnh sửa.
 
-### Review milestone
+## UITEST — UI/QA
 
-- **Ngày review:** `____ / ____ / ______`
-- **Build:** `Prototype_v0.1`
-- **FPS trung bình:** `______ FPS`
-- **Số lỗi P0/P1:** `______`
-- **Kết quả:** `Đạt / Đạt có điều kiện / Chưa đạt`
-- **Vấn đề còn lại:** `________________________________________`
+- [ ] Wireframe Main Menu.
+- [ ] Wireframe Information Panel.
+- [ ] Wireframe Exhibit Viewer.
+- [ ] Wireframe Quiz.
+- [ ] Wireframe Result.
+- [ ] Thiết kế interaction prompt.
+- [ ] Tạo test-case template.
+- [ ] Tạo bug-report template.
 
----
+## Nghiệm thu M0
 
-## 5. Milestone 2 — Alpha đầy đủ chức năng
-
-### Mục tiêu
-
-Hoàn thành toàn bộ tính năng bắt buộc. Hình ảnh chưa cần tinh chỉnh cuối nhưng trải nghiệm phải đi được từ đầu đến cuối.
-
-### Checklist công việc
-
-- [ ] (GP) Tạo `ExhibitData` bằng ScriptableObject hoặc cấu trúc tương đương.
-- [ ] (GP) Mỗi hiện vật đọc dữ liệu độc lập, không hard-code nội dung trong UI.
-- [ ] (GP) Hoàn thiện chế độ xem hiện vật 3D (xoay và zoom).
-- [ ] (GP) Khóa di chuyển đúng cách khi panel hoặc viewer đang mở.
-- [ ] (GP) Hoàn thiện hệ thống audio guide.
-- [ ] (GP) Tích hợp hệ thống quiz và màn hình kết quả.
-- [ ] (GP) Tích hợp cài đặt âm lượng và độ nhạy chuột.
-- [ ] (ENV) Hoàn thiện kiến trúc sảnh chính.
-- [ ] (ENV) Hoàn thiện khu Ê Đê.
-- [ ] (ENV) Hoàn thiện khu Ba Na.
-- [ ] (ENV) Hoàn thiện khu Gia Rai.
-- [ ] (ENV) Hoàn thiện khu quiz.
-- [ ] (ENV) Thêm biển tên và chỉ dẫn giữa các khu.
-- [ ] (ENV) Thiết lập ánh sáng thử cho toàn bộ bảo tàng.
-- [ ] (CONT) Hoàn thiện hiện vật 1–2.
-- [ ] (CONT) Hoàn thiện hiện vật 3–4.
-- [ ] (CONT) Hoàn thiện hiện vật 5–6.
-- [ ] (CONT) Chuẩn hóa tỷ lệ mannequin và hướng đặt hiện vật.
-- [ ] (CONT) Hoàn thiện nội dung nháp của cả 3 khu.
-- [ ] (CONT) Hoàn thiện kịch bản cho ít nhất 3 đoạn thuyết minh.
-- [ ] (CONT) Kiểm tra nguồn và giấy phép của toàn bộ asset nội dung.
-- [ ] (UITEST) Hoàn thiện bảng thông tin cho đủ 6 hiện vật.
-- [ ] (UITEST) Hoàn thiện hướng dẫn điều khiển và menu cài đặt.
-- [ ] (UITEST) Thu và xử lý ít nhất 1 đoạn thuyết minh mẫu.
-- [ ] (UITEST) Hoàn thiện quiz 5 câu, tính điểm, chơi lại và màn hình kết quả.
-
-### Điều kiện nghiệm thu
-
-- [ ] Có đủ 3 khu trưng bày và 6 hiện vật.
-- [ ] Cả 6 hiện vật đều mở đúng bảng thông tin.
-- [ ] Tất cả hiện vật có thể xoay và zoom trong viewer.
-- [ ] Audio guide mẫu phát, dừng và điều chỉnh âm lượng đúng.
-- [ ] Quiz có 5 câu, tính điểm chính xác và chơi lại được.
-- [ ] Hoàn thành được toàn bộ hành trình mà không cần Unity Editor.
-- [ ] Có bản build `Alpha_v0.1` chạy trên ít nhất 2 máy.
-
-### Tiêu chí Go/No-Go
-
-- **Go:** Đã hoàn thành toàn bộ chức năng MVP, dù còn placeholder thẩm mỹ.
-- **No-Go:** Thiếu khu, thiếu hiện vật, quiz chưa chạy hoặc có lỗi chặn luồng.
-- Nếu No-Go ở ngày 10, dừng mọi tính năng mở rộng và giảm độ chi tiết đồ họa để bảo vệ luồng MVP.
-
-### Review milestone
-
-- **Ngày review:** `____ / ____ / ______`
-- **Build:** `Alpha_v0.1`
-- **Số hiện vật hoàn tất:** `______ / 6`
-- **Số khu hoàn tất:** `______ / 3`
-- **Số lỗi P0:** `______`
-- **Số lỗi P1:** `______`
-- **Kết quả:** `Đạt / Đạt có điều kiện / Chưa đạt`
-- **Phạm vi cần cắt giảm:** `__________________________________`
+- [ ] Project clone/mở được trên máy nhóm.
+- [ ] Git workflow thống nhất.
+- [ ] Không commit cache Unity.
+- [ ] Layout bảo tàng được duyệt.
+- [ ] Có danh sách 6 hiện vật.
+- [ ] Có nguồn sơ bộ.
+- [ ] Có wireframe chính.
 
 ---
 
-## 6. Milestone 3 — Beta hoàn chỉnh nội dung
+# 4. M1 — PROTOTYPE v0.1
 
-### Mục tiêu
+## Mục tiêu
 
-Thay thế placeholder quan trọng, hoàn thiện nội dung văn hóa, ánh sáng, âm thanh và UI; sau đó kiểm tra khả năng tự sử dụng với người ngoài.
+Có luồng:
 
-### Checklist công việc
+`Main Menu → Museum → di chuyển → tương tác → xem một hiện vật`.
 
-- [ ] (GP) Sửa tất cả lỗi P0 và các lỗi P1 về di chuyển/tương tác của bản Alpha.
-- [ ] (GP) Hoàn thiện chuyển đổi giữa đi lại, UI và viewer.
-- [ ] (GP) Kiểm tra quay lại menu và vào lại bảo tàng.
-- [ ] (GP) Bổ sung phản hồi khi tương tác thành công hoặc không thể tương tác.
-- [ ] (ENV) Thay placeholder kiến trúc quan trọng.
-- [ ] (ENV) Hoàn thiện material sàn, tường, bục và tủ kính.
-- [ ] (ENV) Hoàn thiện ánh sáng cho cả 3 khu.
-- [ ] (ENV) Bake lighting và light probe.
-- [ ] (ENV) Thêm occlusion culling hoặc LOD nếu cần.
-- [ ] (ENV) Kiểm tra polygon, texture và collider; đạt trung bình ≥ 45 FPS trên máy mục tiêu.
-- [ ] (CONT) Kiểm tra lại tên gọi, dân tộc, địa bàn, chất liệu và hoàn cảnh sử dụng của 6 hiện vật.
-- [ ] (CONT) Loại bỏ mọi diễn giải họa tiết/màu sắc không có nguồn; kiểm tra chính tả và tên riêng.
-- [ ] (CONT) Hoàn thiện danh mục nguồn tham khảo.
-- [ ] (CONT) Nhờ giảng viên/người am hiểu review và **khóa nội dung sau ngày 14**.
-- [ ] (UITEST) Thu âm chính thức tối thiểu 3 đoạn thuyết minh (30–60 giây).
-- [ ] (UITEST) Chuẩn hóa âm lượng, loại tạp âm; thêm âm nút bấm và âm môi trường.
-- [ ] (UITEST) Kiểm tra UI ở 1920×1080, 1600×900 và 1366×768.
-- [ ] (UITEST) Chuẩn bị kịch bản user test và mời 3–5 người ngoài trải nghiệm.
+## GP
 
-### Dữ liệu cần ghi trong user test
+### Player
 
-- [ ] Người dùng có hiểu cách điều khiển mà không được hướng dẫn trực tiếp không?
-- [ ] Người dùng có tìm được cả 3 khu không?
-- [ ] Người dùng có nhận ra đối tượng có thể tương tác không?
-- [ ] Người dùng có đọc hết bảng thông tin hay bỏ qua vì quá dài?
-- [ ] Người dùng có hoàn thành được quiz không?
-- [ ] Thời gian hoàn thành trung bình: `______ phút`.
-- [ ] Số người bị lạc hoặc mắc kẹt: `______ / ______`.
-- [ ] Điểm quiz trung bình: `______ / 5`.
-- [ ] Ba vấn đề được nhắc lại nhiều nhất:
-  1. `__________________________________________________`
-  2. `__________________________________________________`
-  3. `__________________________________________________`
+- [ ] WASD movement.
+- [ ] Mouse look.
+- [ ] Gravity.
+- [ ] Collision.
+- [ ] Cursor lock/unlock.
+- [ ] Pause/resume.
 
-### Điều kiện nghiệm thu
+### Interaction
 
-- [ ] Không còn placeholder quan trọng trong luồng demo.
-- [ ] Đủ 3 đoạn thuyết minh dài khoảng 30–60 giây.
-- [ ] Nội dung của 6 hiện vật đã được review và có nguồn.
-- [ ] Bảo tàng đạt hiệu năng tối thiểu trên máy mục tiêu.
-- [ ] Người ngoài có thể tự hoàn thành trải nghiệm.
-- [ ] Không còn lỗi P0; các lỗi P1 đều có kế hoạch sửa.
-- [ ] Tính năng được đóng băng sau ngày 15.
-- [ ] Có bản build `Beta_v0.5`.
+- [ ] Camera raycast.
+- [ ] Interaction distance.
+- [ ] Detect interactable.
+- [ ] Gọi interaction bằng `E`.
+- [ ] Kết nối interaction prompt.
 
-### Tiêu chí Go/No-Go
+### Exhibit prototype
 
-- **Go:** Luồng hoàn chỉnh, nội dung đã khóa và user test không phát hiện lỗi chặn.
-- **No-Go:** Còn placeholder lớn, nội dung chưa xác minh hoặc người ngoài không thể hoàn thành trải nghiệm.
+- [ ] Tạo `ExhibitData`.
+- [ ] Tạo `ExhibitInteractable`.
+- [ ] Tạo một dữ liệu hiện vật mẫu.
+- [ ] Mở Information Panel.
+- [ ] Khóa player khi panel mở.
+- [ ] Đóng panel và trả lại gameplay.
 
-### Review milestone
+## ENV
 
-- **Ngày review:** `____ / ____ / ______`
-- **Build:** `Beta_v0.5`
-- **Số người user test:** `______`
-- **FPS trung bình:** `______ FPS`
-- **Số lỗi P0/P1:** `______ / ______`
-- **Kết quả:** `Đạt / Đạt có điều kiện / Chưa đạt`
-- **Danh sách sửa bắt buộc:** `________________________________`
+- [ ] Blockout sảnh.
+- [ ] Blockout khu Ê Đê.
+- [ ] Blockout khu Ba Na.
+- [ ] Blockout khu Gia Rai.
+- [ ] Blockout Quiz area.
+- [ ] Collider sàn.
+- [ ] Collider tường.
+- [ ] Kiểm tra không có vị trí player bị kẹt.
+- [ ] Đặt 6 vị trí trưng bày placeholder.
+- [ ] Tạo/nhập tủ hoặc bục mẫu.
+- [ ] Lighting prototype.
 
----
+## CONT
 
-## 7. Milestone 4 — Release và bảo vệ
+- [ ] Hoàn thiện hồ sơ hiện vật mẫu.
+- [ ] Chuẩn bị model/mannequin mẫu.
+- [ ] Chuẩn hóa scale.
+- [ ] Chuẩn hóa material.
+- [ ] Chuẩn bị ảnh minh họa.
+- [ ] Viết mô tả mẫu.
+- [ ] Ghi nguồn.
+- [ ] Tìm asset cho 5 hiện vật còn lại.
 
-### Mục tiêu
+## UITEST
 
-Biến bản Beta thành bản phát hành ổn định, đóng gói đầy đủ hồ sơ và chuẩn bị phương án thuyết trình an toàn.
+### Main Menu
 
-### Checklist công việc
+- [ ] Bắt đầu.
+- [ ] Hướng dẫn.
+- [ ] Giới thiệu.
+- [ ] Cài đặt placeholder.
+- [ ] Thoát.
 
-- [ ] (GP) Sửa toàn bộ lỗi P0/P1 còn lại.
-- [ ] (GP) Kiểm thử lại menu, điều khiển, interaction, viewer và quiz.
-- [ ] (GP) Tạo preset đồ họa phù hợp nếu cần.
-- [ ] (GP) Tạo `Release Candidate 1` (ngày 17) và `Release Candidate 2` (ngày 19).
-- [ ] (GP) Tạo bản build chính thức `Release_v1.0` (ngày 20) và kiểm tra trên máy không cài Unity.
-- [ ] (ENV) Kiểm tra Unity Profiler cho CPU, GPU và memory.
-- [ ] (ENV) Giảm texture/mesh vượt mức; loại bỏ vật thể và đèn không dùng.
-- [ ] (ENV) Kiểm tra ánh sáng sau khi build; chụp ảnh màn hình chất lượng cao.
-- [ ] (CONT) Kiểm tra lần cuối toàn bộ bảng thông tin, Credits và tài liệu tham khảo.
-- [ ] (CONT) Ghi rõ nguồn của asset 3D, texture, ảnh, âm thanh và font.
-- [ ] (CONT) Hoàn thiện phần nội dung trong báo cáo; chuẩn bị trả lời câu hỏi về tính chính xác và phạm vi văn hóa.
-- [ ] (UITEST) Chạy toàn bộ test case hồi quy.
-- [ ] (UITEST) Hoàn thiện README, báo cáo và slide thuyết trình.
-- [ ] (UITEST) Quay video demo 3–5 phút và chuẩn bị video offline dự phòng.
-- [ ] (UITEST) Ghi lại danh sách lỗi đã biết.
+### Information UI
 
-### Bộ kiểm thử Release bắt buộc
+- [ ] Tên hiện vật.
+- [ ] Ảnh.
+- [ ] Mô tả.
+- [ ] Nguồn.
+- [ ] Nút đóng.
+- [ ] Nút xem 3D placeholder.
+- [ ] Nút audio placeholder.
 
-- [ ] File `.exe` mở được trên máy sạch.
-- [ ] Tất cả nút menu hoạt động.
-- [ ] Người chơi không rơi khỏi sàn hoặc mắc kẹt.
-- [ ] Đủ 6 hiện vật tương tác đúng.
-- [ ] Bảng thông tin không tràn chữ ở các độ phân giải mục tiêu.
-- [ ] Xoay/zoom hiện vật và thoát viewer hoạt động.
-- [ ] Các audio guide không phát chồng.
-- [ ] Cài đặt âm lượng có hiệu lực.
-- [ ] Quiz tính điểm đúng và chơi lại được.
-- [ ] Pause/resume và quay về menu hoạt động.
-- [ ] Chơi liên tục 20 phút không crash.
-- [ ] FPS trung bình đạt ít nhất 45 trên máy mục tiêu.
+### QA
 
-### Điều kiện nghiệm thu
+- [ ] Kiểm tra UI 1920×1080.
+- [ ] Kiểm tra menu → museum.
+- [ ] Kiểm tra interaction prototype.
+- [ ] Ghi bug.
 
-- [ ] Không còn lỗi P0 hoặc P1.
-- [ ] Bản build chạy được trên máy thuyết trình.
-- [ ] Source code được sao lưu và có thể mở lại.
-- [ ] Báo cáo, slide và video đã hoàn tất.
-- [ ] Toàn bộ nguồn và giấy phép được liệt kê.
-- [ ] Có bản sao dự phòng trên USB và cloud.
-- [ ] Đã diễn tập thuyết trình ít nhất 2 lần.
+## Integration M1
 
-### Review milestone
+- [ ] Merge Player.
+- [ ] Merge Environment.
+- [ ] Merge Exhibit prototype.
+- [ ] Merge UI.
+- [ ] Test trên máy GP.
+- [ ] Test trên ít nhất một máy thành viên khác.
+- [ ] Không còn P0.
+- [ ] Không còn P1 chặn demo.
 
-- **Ngày review:** `____ / ____ / ______`
-- **Build:** `Release_v1.0`
-- **FPS trung bình:** `______ FPS`
-- **Kích thước build:** `______ MB/GB`
-- **Số lỗi đã biết:** `______`
-- **Kết quả:** `Sẵn sàng bảo vệ / Chưa sẵn sàng`
+## Build
+
+- [ ] Tạo `Prototype_v0.1`.
+- [ ] Tag Git.
+- [ ] Backup build.
+
+### Review M1
+
+- **Ngày:** `____________`
+- **FPS:** `____________`
+- **P0:** `____________`
+- **P1:** `____________`
+- **Kết quả:** `PASS / CONDITIONAL / FAIL`
+- **Ghi chú:** `____________________________________________`
 
 ---
 
-## 8. Backlog tính năng mở rộng
+# 5. M2 — ALPHA v0.1
 
-Chỉ nhận các task dưới đây sau khi Milestone 3 đã đạt và không còn lỗi P0/P1:
+## Mục tiêu
 
-- [ ] Khu thứ 4 (M’nông) và hiện vật bổ sung.
-- [ ] Chế độ VR.
-- [ ] Phụ đề đồng bộ với thuyết minh.
-- [ ] Song ngữ Việt–Anh.
-- [ ] Hệ thống thu thập con dấu.
-- [ ] Nhân vật hướng dẫn ảo.
-- [ ] Mini-game ghép họa tiết.
-- [ ] Video hoặc hoạt ảnh minh họa quy trình dệt.
+Toàn bộ MVP có thể chơi end-to-end với 3 khu và 6 hiện vật.
 
-Nếu một tính năng mở rộng có nguy cơ làm trễ `Release_v1.0`, lập tức đưa nó trở lại backlog.
+## GP
 
-## 9. Nhật ký tiến độ hằng ngày
+### Exhibit System
 
-Sao chép mẫu dưới đây cho mỗi ngày làm việc:
+- [ ] Hoàn thiện `ExhibitData`.
+- [ ] Data không hard-code trong UI.
+- [ ] 6 exhibit dùng chung hệ thống interaction.
+- [ ] Hoàn thiện trạng thái mở/đóng UI.
 
-### Ngày \_**\_ — \_\_** / \_**\_ / \_\_\_\_**
+### Exhibit Viewer
 
-- **Milestone hiện tại:** `M0 / M1 / M2 / M3 / M4`
-- **Tiến độ milestone:** `______%`
-- **Mục tiêu chính hôm nay:** `_________________________________`
-- **Đã hoàn thành:** `_______________________________________`
-- **Đang làm dở:** `_________________________________________`
-- **Lỗi/rủi ro mới:** `______________________________________`
-- **Task đang bị chặn + hướng xử lý:** `_____________________`
-- **Mục tiêu ngày tiếp theo:** `_____________________________`
+- [ ] Spawn/display model.
+- [ ] Mouse rotation.
+- [ ] Zoom.
+- [ ] Zoom limits.
+- [ ] Close.
+- [ ] Không thay transform exhibit gốc.
+- [ ] Player bị khóa khi viewer mở.
 
-## 10. Nhật ký build
+### Audio Integration
 
-### Build 01
+- [ ] AudioManager.
+- [ ] Play voice-over.
+- [ ] Stop voice-over.
+- [ ] Không phát chồng voice-over.
+- [ ] Volume integration.
 
-- **Tên build:** `_____________________________________________`
-- **Ngày tạo:** `____ / ____ / ______`
-- **Commit/nhánh/tag:** `______________________________________`
-- **Máy đã kiểm thử:** `_______________________________________`
-- **FPS trung bình:** `________________________________________`
-- **Lỗi nghiêm trọng:** `______________________________________`
-- **Kết luận:** `Đạt / Không đạt`
+### Settings
 
-### Build 02
+- [ ] Master Volume.
+- [ ] Mouse sensitivity.
+- [ ] Lưu setting trong phiên chạy.
+- [ ] Graphics setting nếu cần.
 
-- **Tên build:** `_____________________________________________`
-- **Ngày tạo:** `____ / ____ / ______`
-- **Commit/nhánh/tag:** `______________________________________`
-- **Máy đã kiểm thử:** `_______________________________________`
-- **FPS trung bình:** `________________________________________`
-- **Lỗi nghiêm trọng:** `______________________________________`
-- **Kết luận:** `Đạt / Không đạt`
+### Quiz Integration
 
-### Build 03
+- [ ] Kết nối QuizManager.
+- [ ] Start quiz.
+- [ ] Result.
+- [ ] Replay.
+- [ ] Return.
 
-- **Tên build:** `_____________________________________________`
-- **Ngày tạo:** `____ / ____ / ______`
-- **Commit/nhánh/tag:** `______________________________________`
-- **Máy đã kiểm thử:** `_______________________________________`
-- **FPS trung bình:** `________________________________________`
-- **Lỗi nghiêm trọng:** `______________________________________`
-- **Kết luận:** `Đạt / Không đạt`
+## ENV
 
-## 11. Tình trạng dự án hiện tại
+### Sảnh
 
-- **Milestone hiện tại:** `Milestone 0 — Khởi tạo dự án`
-- **Trạng thái tổng thể:** `[ ] Chưa bắt đầu`
-- **Tiến độ tổng thể:** `0%`
-- **Số task đã hoàn thành:** `0 / ____`
-- **Số lỗi P0:** `0`
-- **Số lỗi P1:** `0`
-- **Rủi ro lớn nhất:** `Chưa cập nhật`
-- **Bản build mới nhất:** `Chưa có`
-- **Ngày cập nhật gần nhất:** `____ / ____ / ______`
+- [ ] Kiến trúc chính.
+- [ ] Quầy/điểm giới thiệu.
+- [ ] Sơ đồ.
+- [ ] Biển hướng dẫn.
 
-## 12. Quy tắc xử lý khi chậm tiến độ
+### Ê Đê
 
-Nếu milestone trễ hơn một ngày:
+- [ ] Layout.
+- [ ] 2 display positions.
+- [ ] Sign.
+- [ ] Lighting pass 1.
 
-1. Dừng nhận tính năng mới.
-2. Sửa P0/P1 trước các lỗi thẩm mỹ.
-3. Giữ 3 khu và 6 hiện vật nhưng giảm độ chi tiết asset và tăng tỷ lệ dùng ảnh tư liệu nếu cần.
-4. Bỏ lần lượt khu thứ 4, VR, song ngữ, mini-game, nhân vật hướng dẫn và các hiệu ứng nâng cao.
-5. Dồn thời gian vào task chặn luồng chính; dời việc đánh bóng sang cuối tuần dự phòng.
-6. Ghi rõ phạm vi bị cắt và lý do trong phần review milestone.
+### Ba Na
 
-Không được cắt giảm việc kiểm duyệt nội dung văn hóa, nguồn tham khảo, kiểm thử bản build hoặc video dự phòng.
+- [ ] Layout.
+- [ ] 2 display positions.
+- [ ] Sign.
+- [ ] Lighting pass 1.
+
+### Gia Rai
+
+- [ ] Layout.
+- [ ] 2 display positions.
+- [ ] Sign.
+- [ ] Lighting pass 1.
+
+### Quiz Area
+
+- [ ] Layout.
+- [ ] Sign.
+- [ ] Trigger/interaction position.
+
+### Environment QA
+
+- [ ] Collider.
+- [ ] Scale.
+- [ ] Không có lỗ map.
+- [ ] Không có vật cản vô hình.
+- [ ] Navigation rõ.
+
+## CONT
+
+### Exhibit 01
+
+- [ ] Model.
+- [ ] Texture/material.
+- [ ] Data.
+- [ ] Image.
+- [ ] Source.
+
+### Exhibit 02
+
+- [ ] Model.
+- [ ] Texture/material.
+- [ ] Data.
+- [ ] Image.
+- [ ] Source.
+
+### Exhibit 03
+
+- [ ] Model.
+- [ ] Texture/material.
+- [ ] Data.
+- [ ] Image.
+- [ ] Source.
+
+### Exhibit 04
+
+- [ ] Model.
+- [ ] Texture/material.
+- [ ] Data.
+- [ ] Image.
+- [ ] Source.
+
+### Exhibit 05
+
+- [ ] Model.
+- [ ] Texture/material.
+- [ ] Data.
+- [ ] Image.
+- [ ] Source.
+
+### Exhibit 06
+
+- [ ] Model.
+- [ ] Texture/material.
+- [ ] Data.
+- [ ] Image.
+- [ ] Source.
+
+### Nội dung
+
+- [ ] Giới thiệu Ê Đê.
+- [ ] Giới thiệu Ba Na.
+- [ ] Giới thiệu Gia Rai.
+- [ ] Kịch bản voice 1.
+- [ ] Kịch bản voice 2.
+- [ ] Kịch bản voice 3.
+- [ ] License list được cập nhật.
+
+## UITEST
+
+### UI
+
+- [ ] Information Panel final structure.
+- [ ] Exhibit Viewer UI.
+- [ ] Pause Menu.
+- [ ] Settings.
+- [ ] Navigation prompt.
+
+### Quiz
+
+- [ ] 5 câu hỏi.
+- [ ] Đáp án.
+- [ ] Next question.
+- [ ] Score.
+- [ ] Result.
+- [ ] Replay.
+- [ ] Return.
+
+### Audio
+
+- [ ] BGM prototype.
+- [ ] Ambient prototype.
+- [ ] Button SFX.
+- [ ] Interaction SFX.
+- [ ] Voice-over prototype.
+
+### QA
+
+- [ ] Test 6 exhibit.
+- [ ] Test viewer.
+- [ ] Test audio.
+- [ ] Test settings.
+- [ ] Test quiz.
+
+## Integration M2
+
+- [ ] 3 khu có trong build.
+- [ ] 6/6 exhibit có trong build.
+- [ ] 6/6 Information Panel đúng data.
+- [ ] 6/6 viewer hoạt động.
+- [ ] Audio guide hoạt động.
+- [ ] Quiz 5 câu hoạt động.
+- [ ] Menu → Museum → Quiz → Result hoàn chỉnh.
+- [ ] Test ít nhất 2 máy.
+
+## Build
+
+- [ ] `Alpha_v0.1`.
+- [ ] Git tag.
+- [ ] Backup.
+- [ ] Bug triage P0–P3.
+
+### Review M2
+
+- **Ngày:** `____________`
+- **Exhibit:** `____ / 6`
+- **Khu:** `____ / 3`
+- **FPS:** `____________`
+- **P0:** `____________`
+- **P1:** `____________`
+- **Kết quả:** `PASS / CONDITIONAL / FAIL`
+- **Phạm vi cần điều chỉnh:** `_______________________________`
+
+---
+
+# 6. M3 — BETA v0.5
+
+## Mục tiêu
+
+Hoàn thiện nội dung, đồ họa, audio và UX; thực hiện user test.
+
+## GP
+
+- [ ] Sửa P0 Alpha.
+- [ ] Sửa P1 Alpha.
+- [ ] Polish interaction.
+- [ ] Kiểm tra UI/gameplay state.
+- [ ] Kiểm tra cursor state.
+- [ ] Kiểm tra return menu.
+- [ ] Kiểm tra reload Museum.
+- [ ] Interaction feedback.
+
+## ENV
+
+- [ ] Material sàn.
+- [ ] Material tường.
+- [ ] Tủ/bục.
+- [ ] Glass material.
+- [ ] Lighting Ê Đê.
+- [ ] Lighting Ba Na.
+- [ ] Lighting Gia Rai.
+- [ ] Lighting sảnh.
+- [ ] Bake lighting.
+- [ ] Light probes.
+- [ ] Occlusion nếu cần.
+- [ ] LOD nếu cần.
+- [ ] Profiler environment.
+- [ ] FPS trung bình ≥ 45 trên máy mục tiêu hoặc có kế hoạch tối ưu cụ thể.
+
+## CONT
+
+- [ ] Review Exhibit 01.
+- [ ] Review Exhibit 02.
+- [ ] Review Exhibit 03.
+- [ ] Review Exhibit 04.
+- [ ] Review Exhibit 05.
+- [ ] Review Exhibit 06.
+- [ ] Kiểm tra tên riêng.
+- [ ] Kiểm tra cộng đồng liên quan.
+- [ ] Kiểm tra chất liệu.
+- [ ] Kiểm tra hoàn cảnh sử dụng.
+- [ ] Kiểm tra nguồn ảnh.
+- [ ] Kiểm tra license model.
+- [ ] Kiểm tra mọi diễn giải họa tiết/màu sắc.
+- [ ] Review với giảng viên/người am hiểu.
+- [ ] Khóa nội dung.
+
+## UITEST
+
+### Audio final
+
+- [ ] Voice-over 1.
+- [ ] Voice-over 2.
+- [ ] Voice-over 3.
+- [ ] Noise reduction.
+- [ ] Normalize.
+- [ ] BGM.
+- [ ] Ambient.
+- [ ] SFX.
+
+### UI polish
+
+- [ ] 1920×1080.
+- [ ] 1600×900.
+- [ ] 1366×768.
+- [ ] Font size.
+- [ ] Contrast.
+- [ ] Overflow.
+- [ ] Interaction prompt.
+
+### User Test
+
+- [ ] Chuẩn bị kịch bản.
+- [ ] Có 3–5 tester.
+- [ ] Không hướng dẫn trực tiếp ngoài phần game cung cấp.
+- [ ] Ghi thời gian.
+- [ ] Ghi điểm bị lạc.
+- [ ] Ghi lỗi interaction.
+- [ ] Ghi nhận nội dung khó đọc.
+- [ ] Ghi quiz score.
+- [ ] Tổng hợp feedback.
+
+## User Test Metrics
+
+- **Số tester:** `______`
+- **Hoàn thành trải nghiệm:** `______ / ______`
+- **Thời gian trung bình:** `______ phút`
+- **Bị lạc:** `______ / ______`
+- **Mắc kẹt:** `______ / ______`
+- **Quiz trung bình:** `______ / 5`
+
+### Top issues
+
+1. `________________________________________________`
+2. `________________________________________________`
+3. `________________________________________________`
+
+## Integration M3
+
+- [ ] Không còn placeholder quan trọng.
+- [ ] Nội dung đã khóa.
+- [ ] Audio final.
+- [ ] Environment final pass.
+- [ ] Không còn P0.
+- [ ] P1 có kế hoạch sửa trước release.
+- [ ] User mới có thể hoàn thành trải nghiệm.
+
+## Build
+
+- [ ] `Beta_v0.5`.
+- [ ] Git tag.
+- [ ] Backup.
+
+## FEATURE FREEZE
+
+- [ ] Nhóm xác nhận không thêm feature sau Beta.
+
+### Review M3
+
+- **Ngày:** `____________`
+- **FPS:** `____________`
+- **P0:** `____________`
+- **P1:** `____________`
+- **User test:** `____________ người`
+- **Kết quả:** `PASS / CONDITIONAL / FAIL`
+
+---
+
+# 7. M4 — RELEASE v1.0
+
+## Mục tiêu
+
+Tạo build ổn định và hoàn thành hồ sơ bảo vệ.
+
+## GP
+
+- [ ] Sửa P0.
+- [ ] Sửa P1.
+- [ ] Regression gameplay.
+- [ ] Build settings.
+- [ ] Release Candidate.
+- [ ] Build trên máy sạch.
+- [ ] Build trên máy trình chiếu.
+- [ ] `Release_v1.0`.
+
+## ENV
+
+- [ ] Profiler CPU.
+- [ ] Profiler GPU.
+- [ ] Profiler Memory.
+- [ ] Texture optimization.
+- [ ] Mesh optimization.
+- [ ] Light optimization.
+- [ ] Kiểm tra baked light trong build.
+- [ ] Chụp screenshot môi trường.
+
+## CONT
+
+- [ ] Final content proofread.
+- [ ] Final references.
+- [ ] Asset licenses.
+- [ ] Image credits.
+- [ ] Audio credits.
+- [ ] Font credits.
+- [ ] Nội dung báo cáo.
+- [ ] Chuẩn bị câu hỏi về tính chính xác văn hóa.
+
+## UITEST
+
+- [ ] Full regression.
+- [ ] Known Issues.
+- [ ] README.
+- [ ] Screenshot.
+- [ ] Video demo 3–5 phút.
+- [ ] Hỗ trợ slide.
+- [ ] Video offline backup.
+
+---
+
+# 8. RELEASE REGRESSION CHECKLIST
+
+- [ ] `.exe` mở được.
+- [ ] Main Menu hoạt động.
+- [ ] Start hoạt động.
+- [ ] Instructions hoạt động.
+- [ ] About hoạt động.
+- [ ] Settings hoạt động.
+- [ ] Exit hoạt động.
+- [ ] WASD hoạt động.
+- [ ] Mouse look hoạt động.
+- [ ] Không xuyên tường.
+- [ ] Không rơi khỏi map.
+- [ ] Không mắc kẹt.
+- [ ] Exhibit 01 hoạt động.
+- [ ] Exhibit 02 hoạt động.
+- [ ] Exhibit 03 hoạt động.
+- [ ] Exhibit 04 hoạt động.
+- [ ] Exhibit 05 hoạt động.
+- [ ] Exhibit 06 hoạt động.
+- [ ] Information Panel đúng.
+- [ ] Viewer rotate.
+- [ ] Viewer zoom.
+- [ ] Viewer close.
+- [ ] Audio không chồng.
+- [ ] Volume hoạt động.
+- [ ] Pause.
+- [ ] Resume.
+- [ ] Return Menu.
+- [ ] Quiz đủ 5 câu.
+- [ ] Quiz score đúng.
+- [ ] Replay Quiz.
+- [ ] Result.
+- [ ] UI không overflow.
+- [ ] Chơi 20 phút không crash.
+- [ ] FPS trung bình ≥ 45 trên máy mục tiêu.
+
+---
+
+# 9. DOCUMENTATION CHECKLIST
+
+- [ ] Windows build.
+- [ ] Unity source.
+- [ ] README.
+- [ ] Báo cáo.
+- [ ] Slide.
+- [ ] Video demo.
+- [ ] Screenshot/poster.
+- [ ] References.
+- [ ] Asset license list.
+- [ ] Known issues.
+- [ ] Git repository sạch.
+- [ ] Backup cloud.
+- [ ] Backup USB.
+
+---
+
+# 10. BẢNG THEO DÕI THÀNH VIÊN
+
+## GP
+
+- **Task hiện tại:** `________________________________`
+- **Branch:** `______________________________________`
+- **Trạng thái:** `[ ] / [-] / [x] / [!]`
+- **Blocker:** `_____________________________________`
+- **ETA:** `_________________________________________`
+
+## ENV
+
+- **Task hiện tại:** `________________________________`
+- **Branch:** `______________________________________`
+- **Trạng thái:** `[ ] / [-] / [x] / [!]`
+- **Blocker:** `_____________________________________`
+- **ETA:** `_________________________________________`
+
+## CONT
+
+- **Task hiện tại:** `________________________________`
+- **Branch:** `______________________________________`
+- **Trạng thái:** `[ ] / [-] / [x] / [!]`
+- **Blocker:** `_____________________________________`
+- **ETA:** `_________________________________________`
+
+## UITEST
+
+- **Task hiện tại:** `________________________________`
+- **Branch:** `______________________________________`
+- **Trạng thái:** `[ ] / [-] / [x] / [!]`
+- **Blocker:** `_____________________________________`
+- **ETA:** `_________________________________________`
+
+---
+
+# 11. DAILY STANDUP
+
+Sao chép phần này cho mỗi ngày.
+
+## Ngày ____ / ____ / ______
+
+### GP
+
+- **Hôm qua:** `_____________________________________`
+- **Hôm nay:** `_____________________________________`
+- **Blocker:** `_____________________________________`
+
+### ENV
+
+- **Hôm qua:** `_____________________________________`
+- **Hôm nay:** `_____________________________________`
+- **Blocker:** `_____________________________________`
+
+### CONT
+
+- **Hôm qua:** `_____________________________________`
+- **Hôm nay:** `_____________________________________`
+- **Blocker:** `_____________________________________`
+
+### UITEST
+
+- **Hôm qua:** `_____________________________________`
+- **Hôm nay:** `_____________________________________`
+- **Blocker:** `_____________________________________`
+
+### Integration cần thực hiện
+
+`___________________________________________________`
+
+### Quyết định của nhóm
+
+`___________________________________________________`
+
+---
+
+# 12. BUG TRACKER
+
+## BUG-001
+
+- **Severity:** `P0 / P1 / P2 / P3`
+- **Build:** `________________`
+- **Người phát hiện:** `________________`
+- **Module:** `________________`
+- **Mô tả:** `________________________________________`
+- **Cách tái hiện:** `________________________________`
+- **Người xử lý:** `________________`
+- **Branch:** `________________`
+- **Status:** `Open / Fixing / Verify / Closed`
+
+## BUG-002
+
+- **Severity:** `P0 / P1 / P2 / P3`
+- **Build:** `________________`
+- **Người phát hiện:** `________________`
+- **Module:** `________________`
+- **Mô tả:** `________________________________________`
+- **Cách tái hiện:** `________________________________`
+- **Người xử lý:** `________________`
+- **Branch:** `________________`
+- **Status:** `Open / Fixing / Verify / Closed`
+
+---
+
+# 13. BUILD LOG
+
+## Build 01
+
+- **Tên:** `Prototype_v0.1`
+- **Ngày:** `____________`
+- **Commit:** `____________`
+- **Tag:** `____________`
+- **Máy test:** `____________`
+- **FPS:** `____________`
+- **P0/P1:** `____________`
+- **Kết quả:** `PASS / FAIL`
+
+## Build 02
+
+- **Tên:** `Alpha_v0.1`
+- **Ngày:** `____________`
+- **Commit:** `____________`
+- **Tag:** `____________`
+- **Máy test:** `____________`
+- **FPS:** `____________`
+- **P0/P1:** `____________`
+- **Kết quả:** `PASS / FAIL`
+
+## Build 03
+
+- **Tên:** `Beta_v0.5`
+- **Ngày:** `____________`
+- **Commit:** `____________`
+- **Tag:** `____________`
+- **Máy test:** `____________`
+- **FPS:** `____________`
+- **P0/P1:** `____________`
+- **Kết quả:** `PASS / FAIL`
+
+## Build 04
+
+- **Tên:** `Release_v1.0`
+- **Ngày:** `____________`
+- **Commit:** `____________`
+- **Tag:** `____________`
+- **Máy test:** `____________`
+- **FPS:** `____________`
+- **P0/P1:** `0 / 0`
+- **Kết quả:** `READY / NOT READY`
+
+---
+
+# 14. RISK TRACKER
+
+| Rủi ro | Mức độ | Owner | Trạng thái | Hướng xử lý |
+|---|---|---|---|---|
+| Git/scene conflict | Cao | GP | `[ ]` | Scene ownership + prefab + branch |
+| Asset trang phục khó tìm | Cao | CONT | `[ ]` | Asset có license + mannequin + ảnh |
+| Nội dung chưa xác minh | Rất cao | CONT | `[ ]` | Review nguồn/người am hiểu |
+| FPS thấp | Cao | ENV | `[ ]` | Profiler + bake + optimize |
+| UI khó đọc | Trung bình | UITEST | `[ ]` | Multi-resolution test |
+| Integration lỗi | Cao | GP | `[ ]` | Merge sớm + milestone build |
+| Scope creep | Cao | Cả nhóm | `[ ]` | MVP first + feature freeze |
+| Thành viên trễ task | Cao | Cả nhóm | `[ ]` | Hỗ trợ task blocker |
+| Máy demo lỗi | Cao | GP/UITEST | `[ ]` | Test máy trình chiếu + video backup |
+
+---
+
+# 15. QUY TẮC KHI CHẬM TIẾN ĐỘ
+
+Nếu milestone chậm:
+
+1. Không nhận feature mới.
+2. Tất cả thành viên ưu tiên blocker của luồng chính.
+3. P0 → P1 → performance → P2 → polish.
+4. Dừng tính năng mở rộng.
+5. Giảm prop/trang trí.
+6. Giảm post-processing.
+7. Giảm độ chi tiết model/texture.
+8. Dùng asset phù hợp thay vì tự dựng nếu cần.
+9. Giữ 3 khu + 6 hiện vật.
+10. Ghi rõ scope bị cắt trong milestone review.
+
+Không cắt:
+
+- Kiểm chứng nội dung.
+- Nguồn/license.
+- Interaction.
+- Information Panel.
+- Quiz.
+- Build test.
+- Backup.
+- Hồ sơ bảo vệ.
+
+---
+
+# 16. TÌNH TRẠNG DỰ ÁN HIỆN TẠI
+
+Dựa trên trạng thái đã có trước khi chuyển kế hoạch sang nhóm 4 người:
+
+### Đã hoàn thành
+
+- [x] Chọn Unity/render pipeline.
+- [x] Tạo project.
+- [x] Project mở/chạy được.
+- [x] Tạo Git repository.
+- [x] `.gitignore`.
+- [x] `main`.
+- [x] `develop`.
+- [x] `Assets/_Project`.
+- [x] `Bootstrap`.
+- [x] `MainMenu`.
+- [x] `Museum`.
+- [x] Bảng quản lý task.
+
+### Cần thực hiện tiếp
+
+**ENV**
+- [ ] Layout bảo tàng.
+- [ ] Scale/kích thước.
+- [ ] Vị trí hiện vật.
+- [ ] Chốt environment asset.
+
+**CONT**
+- [ ] Chốt 6 hiện vật.
+- [ ] Nguồn.
+- [ ] Model/mannequin.
+- [ ] Hồ sơ license.
+
+**UITEST**
+- [ ] Wireframe.
+- [ ] UI structure.
+- [ ] Test template.
+
+**GP**
+- [ ] Xác nhận project hoạt động trên máy các thành viên.
+- [ ] Thống nhất Git workflow.
+- [ ] Bắt đầu Player Controller.
+
+---
+
+# 17. VIỆC NHÓM NÊN LÀM NGAY
+
+### GP
+
+`PlayerController + Interaction prototype`
+
+### ENV
+
+`Hoàn thành layout và blockout bảo tàng`
+
+### CONT
+
+`Chốt danh sách 6 hiện vật + nguồn + asset`
+
+### UITEST
+
+`Wireframe + Main Menu + Information Panel`
+
+Bốn phần này có thể được thực hiện **song song**. Khi hoàn thành, nhóm tích hợp thành `Prototype_v0.1`.
+
+---
+
+# 18. DEFINITION OF RELEASE READY
+
+Chỉ đánh dấu dự án **READY** khi:
+
+- [ ] 3/3 khu hoàn chỉnh.
+- [ ] 6/6 hiện vật hoàn chỉnh.
+- [ ] 6/6 interaction đúng.
+- [ ] Viewer hoạt động.
+- [ ] Audio hoạt động.
+- [ ] Quiz hoạt động.
+- [ ] Không có P0.
+- [ ] Không có P1.
+- [ ] FPS trung bình ≥ 45 trên máy mục tiêu.
+- [ ] Nội dung đã review.
+- [ ] References/license đầy đủ.
+- [ ] Build chạy trên máy trình chiếu.
+- [ ] README hoàn thành.
+- [ ] Báo cáo hoàn thành.
+- [ ] Slide hoàn thành.
+- [ ] Video demo hoàn thành.
+- [ ] Backup USB.
+- [ ] Backup cloud.
+- [ ] Nhóm đã diễn tập demo/bảo vệ.
