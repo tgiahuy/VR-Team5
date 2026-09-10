@@ -1,0 +1,65 @@
+fileFormatVersion: 2
+guid: 71fa866614803004bb83cc876133cadb
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 715df9372183c47e389bb6e19fbc3b52, type: 3}
+  editorImportSettings:
+    generateSecondaryUVSet: 0
+  importSettings:
+    nodeNameMethod: 1
+    animationMethod: 2
+    generateMipMaps: 1
+    texturesReadable: 0
+    defaultMinFilterMode: 9729
+    defaultMagFilterMode: 9729
+    anisotropicFilterLevel: 1
+  instantiationSettings:
+    mask: -1
+    layer: 0
+    skinUpdateWhenOffscreen: 1
+    lightIntensityFactor: 1
+    sceneObjectCreation: 2
+  assetDependencies:
+  - type: 0
+    originalUri: Assets\Models\vr-gallery\VR_Art_Gallery.bin
+    assetPath: Assets\Models\vr-gallery\VR_Art_Gallery.bin
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\floormat_Normal_OpenGL.png
+    assetPath: Assets\Models\vr-gallery\images\floormat_Normal_OpenGL.png
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\Lightmap-0_codfdfdffdmp_light.jpg
+    assetPath: Assets\Models\vr-gallery\images\Lightmap-0_codfdfdffdmp_light.jpg
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\floormat_Metallic.png
+    assetPath: Assets\Models\vr-gallery\images\floormat_Metallic.png
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\Lightmap-1_comp_lighthjhjhjhjjjhjh.jpg
+    assetPath: Assets\Models\vr-gallery\images\Lightmap-1_comp_lighthjhjhjhjjjhjh.jpg
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\woodmat_Base_Color.png
+    assetPath: Assets\Models\vr-gallery\images\woodmat_Base_Color.png
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\woodmat_Normal_OpenGL.png
+    assetPath: Assets\Models\vr-gallery\images\woodmat_Normal_OpenGL.png
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\woodmat_Mixed_AO.png
+    assetPath: Assets\Models\vr-gallery\images\woodmat_Mixed_AO.png
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\woodmat_Metallic.png
+    assetPath: Assets\Models\vr-gallery\images\woodmat_Metallic.png
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\blackmetal_Base_Color.png
+    assetPath: Assets\Models\vr-gallery\images\blackmetal_Base_Color.png
+  - type: 1
+    originalUri: Assets\Models\vr-gallery\images\blackmetal_Normal_OpenGL.png
+    assetPath: Assets\Models\vr-gallery\images\blackmetal_Normal_OpenGL.png
+  reportItems:
+  - type: 2
+    code: 20
+    messages:
+    - KHR_materials_specular
