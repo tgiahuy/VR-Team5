@@ -1,0 +1,196 @@
+{
+  "asset": {
+    "generator": "OpenSceneGraph 3.5.6",
+    "version": "2.0"
+  },
+  "accessors": [
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 10114,
+      "max": [
+        0.009001987986266613,
+        0.009138008579611778,
+        0.00930398516356945
+      ],
+      "min": [
+        -0.00887299980968237,
+        -0.008972999639809132,
+        -0.01795000024139881
+      ],
+      "bufferView": 0,
+      "byteOffset": 0
+    },
+    {
+      "type": "VEC3",
+      "componentType": 5126,
+      "count": 10114,
+      "bufferView": 0,
+      "byteOffset": 12
+    },
+    {
+      "type": "VEC4",
+      "componentType": 5126,
+      "count": 10114,
+      "bufferView": 0,
+      "byteOffset": 24
+    },
+    {
+      "type": "VEC2",
+      "componentType": 5126,
+      "count": 10114,
+      "bufferView": 0,
+      "byteOffset": 40
+    },
+    {
+      "type": "SCALAR",
+      "componentType": 5123,
+      "count": 54663,
+      "bufferView": 1,
+      "byteOffset": 0
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 485472,
+      "byteStride": 48,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 485472,
+      "byteLength": 109328,
+      "target": 34963
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "textures": [
+    {
+      "source": 0,
+      "sampler": 0
+    },
+    {
+      "source": 1,
+      "sampler": 0
+    }
+  ],
+  "images": [
+    {
+      "name": "bake_Default_color.jpg",
+      "mimeType": "image/jpeg",
+      "uri": "images/bake_Default_color.jpg"
+    },
+    {
+      "name": "bake_Default_nmap.jpg",
+      "mimeType": "image/jpeg",
+      "uri": "images/bake_Default_nmap.jpg"
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Ché.bin",
+      "byteLength": 594800
+    }
+  ],
+  "materials": [
+    {
+      "name": "Default.001",
+      "doubleSided": true,
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0,
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 0
+        }
+      },
+      "normalTexture": {
+        "index": 1
+      },
+      "occlusionTexture": {
+        "index": 0
+      },
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularTexture": {
+            "index": 0
+          }
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "GeometryNode_3",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "mode": 4,
+          "material": 0,
+          "indices": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "name": "bake.obj.cleaner.materialmerger.gles",
+      "children": [
+        1
+      ]
+    },
+    {
+      "name": "bake",
+      "children": [
+        2
+      ]
+    },
+    {
+      "name": "GeometryNode_3",
+      "mesh": 0
+    },
+    {
+      "name": "Sketchfab_model",
+      "translation": [
+        0.00007586024003103375,
+        0.004116210155189037,
+        -0.04739448055624962
+      ],
+      "rotation": [
+        -0.04266873749597248,
+        0.5807335356285085,
+        0.8107892067473644,
+        0.05957181844406785
+      ],
+      "children": [
+        0
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        3
+      ]
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_specular"
+  ]
+}
