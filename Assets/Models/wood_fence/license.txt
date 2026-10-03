@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wood fence
+* source:	https://sketchfab.com/3d-models/wood-fence-f647738f3a474a67b23f5534ea9f2092
+* author:	Olivier Larocque (https://sketchfab.com/mutanretox)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wood fence" (https://sketchfab.com/3d-models/wood-fence-f647738f3a474a67b23f5534ea9f2092) by Olivier Larocque (https://sketchfab.com/mutanretox) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

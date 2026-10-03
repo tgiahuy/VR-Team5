@@ -1,0 +1,11 @@
+Model Information:
+* title:	Golden Picture Frame
+* source:	https://sketchfab.com/3d-models/golden-picture-frame-91abbd294de84c5d97a584c1e99203b8
+* author:	nicode (https://sketchfab.com/nicode)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Golden Picture Frame" (https://sketchfab.com/3d-models/golden-picture-frame-91abbd294de84c5d97a584c1e99203b8) by nicode (https://sketchfab.com/nicode) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
